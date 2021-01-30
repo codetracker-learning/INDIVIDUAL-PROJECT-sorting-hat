@@ -3,7 +3,7 @@
 ## Goals
 The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
 
-Focus on MVP. Do not spend a ton of time styling. Hit functionality first and then spend time on the styling of the project.
+Focus on MVP. Do not spend a ton of time styling initially. Hit functionality first and then spend time on the styling of the project.
 
 - READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
 - Check the Issue Tickets to organize your process. You will have all week in class to work on this in class. 
