@@ -1,0 +1,24 @@
+.jumbotron {
+    text-align: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.form-name {
+    text-align: center;
+    justify-content: center;
+    border: 2px solid black; 
+    margin: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 30px;
+    border: 2px solid black;
+    padding: 20px; 
+}
