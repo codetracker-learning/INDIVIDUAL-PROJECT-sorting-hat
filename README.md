@@ -1,7 +1,7 @@
 # Sorting Hat
 
 ## Goals
-The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your repo.
+The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
 
 READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
 
