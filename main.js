@@ -13,6 +13,11 @@ const students = [
     name: 'Harry Potter',
     house: 'Gryffindor'
   },
+  {
+    id: 2,
+    name: 'Hermione Granger',
+    house: 'Griffindor'
+  },
 ]
 
 
