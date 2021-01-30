@@ -18,14 +18,19 @@ In the end, your app will look something like:
 [See Demo](https://drt-sortinghat.netlify.app/)
 
 ## Technical Requirements
-- You must use [Boostrap](https://getbootstrap.com/) to style your page components. 
-- You should apply responsive design to your page (aka your app should be designed to work on small screens)
-- Your JS file should be comprised of functions, no actions should happen in your code outside of a function
+- You MUST plan your project and create issue tickets and a project board fro your project
+- You MAY use the `printToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
+- You have to create a data structure for your project. Review all the elements that need to be on the DOM and create the structure accordingly
+- You must use [Boostrap](https://getbootstrap.com/) to style your page components
+- You must use a loop other than a `for loop`
+- Your JS file should be comprised of functions, no actions should happen in your code outside of a function except for your initial `init()` function
+- Your code MUST be YOUR code. Do not copy and paste code into your project. Type every bit of it out
 - Your HTML and JS should all have proper indentation
 - Helpful Form: An error message shows if a user tries to sort a student without filling out the form
+- You should apply responsive design to your page (aka your app should be designed to work on small screens)
 
 ## Add Button Hints
-When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the dom.
+When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
 
 ## Expel Button Hints
 Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your print to dom function.  Double hint - put a unique id in the student object when you create them.
