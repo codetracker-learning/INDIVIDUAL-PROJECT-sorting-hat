@@ -6,3 +6,7 @@ body {
   background-color: darkgray;
   margin: 50px;
 }
+
+.student-form {
+  border: solid 2px black;
+}
