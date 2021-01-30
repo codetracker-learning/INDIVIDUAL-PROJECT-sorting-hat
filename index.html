@@ -15,13 +15,13 @@
     <hr class="my-4">
     <p>Come seek us where our voices sound, we cannot sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Let's start sorting!</a>
+      <a class="btn btn-primary btn-lg" href="#" role="button" id="start-btn">Let's start sorting!</a>
     </p>
   </div>
 
   <!-- ****FORM**** -->
-  <form>
-    <div class="student-form">
+  <div class="student-form">
+    <form>
       <h1>Enter First Year's Name</h1>
       <div class="row mb-3">
       <label for="student-name" class="col-sm-2 col-form-label">Student:</label>
@@ -30,8 +30,13 @@
       </div>
       </div>
       <button type="button" class="btn btn-secondary" id="sort-btn">Sort!</button>
-    </div>
-  </form>
+      </div>
+    </form>
+  </div>
+
+  <!-- not sure if this is correct or not -->
+  <div id="students" class="d-flex flex-wrap justify-content-around"></div>
+    
   
 
 
