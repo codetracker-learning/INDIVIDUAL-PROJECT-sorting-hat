@@ -45,11 +45,13 @@ const cardBuilder = (e) => {
 
 const formContent = (e) => {
   e.preventDefault ();
-
+  
   const name = document.querySelector('#name').Value;
+  const house =
 
   const obj = {
     name,
+    house,
   }
 
   students.push(obj);
