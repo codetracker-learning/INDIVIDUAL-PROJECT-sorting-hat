@@ -8,7 +8,7 @@ This is what the finished app should have:
 
 - A [bootstrap form](https://getbootstrap.com/docs/4.1/components/forms/) will then appear to fill in the student's name and a button to sort. This should then assign the student to a random house (Gryffindor, Hufflepuff, Ravenclaw, or Slytherin). 
 
-- On sorting a student, the form should clear and a [bootstrap card](https://getbootstrap.com/docs/4.1/components/card/) with the student's name and house should print below the form. 
+- On sorting a student, the form should clear and a [bootstrap card](https://getbootstrap.com/docs/4.1/components/card/) with the student's name and a random house assignment should print below the form. 
 
 - You should also be able to expel a student after they have been sorted, which should remove their card from the student record.
 
