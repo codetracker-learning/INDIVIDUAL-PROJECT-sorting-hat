@@ -3,9 +3,12 @@
 ## Goals
 The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
 
+Focus on MVP. Do not spend a ton of time styling. Hit functionality first and then spend time on the styling of the project.
+
 - READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
-- Check the Issue Tickets to organizae your process. You will have all week in class to work on this. 
+- Check the Issue Tickets to organize your process. You will have all week in class to work on this in class. 
 - PLEASE submit questions along with a link to an issue/discussion ticket to the entire instructional team if you need help. We will guide you to the resources that are available to you.
+- On Saturday, everyone will present how far they got AND their favorite piece of code that they wrote for everyone to share in the Glory!
 - MOST OF ALL HAVE FUN!!!!!
 
 ## Instructions
