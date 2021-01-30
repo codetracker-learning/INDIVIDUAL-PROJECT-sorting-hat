@@ -1,5 +1,16 @@
 # Sorting Hat
 
+## Goals
+The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your repo.
+
+READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
+
+Check the Issue Tickets to organizae your process. You will have all week in class to work on this. 
+
+PLEASE submit questions along with a link to an issue/discussion ticket to the entire instructional team if you need help. We will guide you to the resources that are available to you.
+
+MOST OF ALL HAVE FUN!!!!!
+
 ## Instructions
 You are in charge of bringing the Hogwarts sorting hat to life! 
 
