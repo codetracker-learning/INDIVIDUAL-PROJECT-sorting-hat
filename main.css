@@ -1,3 +1,8 @@
 body {
-  background-color: black;
+  background-color: cornsilk;
+}
+
+.jumbotron {
+  background-color: darkgray;
+  margin: 50px;
 }
