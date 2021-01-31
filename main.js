@@ -14,7 +14,7 @@ const printToDom = (divId, textToPrint) => {
 
 function showForm() {
   document.getElementById("myForm").style.display = "block";
-  }; // sets the myForm div display type to block upon clicking the Get Started button.
+}; // sets the myForm div display type to block upon clicking the Get Started button.
 
 
 const sortingHat = () => {
@@ -43,7 +43,7 @@ const addStudentToHouse = (e) => {
   }
   studentBuilder(students); //run studentBuilder function to generate the card for the newly added student in the array. AKA - Rebiuld the DOM.
 
-  document.querySelector('form').reset(); 
+  document.querySelector('form').reset();
   //Reset the form after the button is clicked
 };
 
@@ -113,10 +113,10 @@ const studentBuilder = (taco) => {
 
 const errorMessage = (student) => {
   if (student) {  //If student has a value when passed to the function set the div's innerHTML to nothing.
-      document.querySelector("#error-message").innerHTML = "";
-} else { //If student returns false when passed set div's innerHTML = to the syled div we setup on the HTML page.
-    document.querySelector("#error-message").innerHTML = 
-        `<div style="color: red;margin-bottom: 10px;">
+    document.querySelector("#error-message").innerHTML = "";
+  } else { //If student returns false when passed set div's innerHTML = to the syled div we setup on the HTML page.
+    document.querySelector("#error-message").innerHTML =
+      `<div style="color: red;margin-bottom: 10px;">
         <b>Don't be shy! Say your name.</b>
       </div>`;
   }
@@ -126,7 +126,6 @@ const errorMessage = (student) => {
 const buttonEvents = () => {
   document.querySelector("#get-started").addEventListener("click", showForm);
   document.querySelector("#sort").addEventListener("click", addStudentToHouse);
-  // document.querySelector("#sort").addEventListener('click', showError);
 };
 
 
