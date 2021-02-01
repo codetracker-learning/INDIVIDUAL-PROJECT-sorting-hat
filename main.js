@@ -3,11 +3,23 @@ console.log("CONNECTED");
 const students = [
   {
     name: "Mitchell",
-    schoolHouse: "Hufflepuffle",
+    schoolHouse: "Gryffindoor",
   }
 ];
 
 const voldermortsArmy = [];
+const houseColors = {
+  Gryffindoor: "#7F0909",
+  Snakes: "#0D6217",
+  Hufflepuffle: "#EEE117",
+  Ravenclaw: "#000A90"
+};
+const houseCrest = {
+  Gryffindoor: "https://img.fruugo.com/product/7/49/46790497_max.jpg",
+  Snakes: "https://i.ebayimg.com/images/g/IgMAAOSw0exaGEr~/s-l500.jpg",
+  Hufflepuffle: "https://i.ebayimg.com/images/g/T-oAAOSw~Lpcm-e4/s-l400.jpg",
+  Ravenclaw: "https://s4.thcdn.com//productimg/1600/1600/12024630-1024653879759849.jpg"
+}
 
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
@@ -61,28 +73,29 @@ const addStudentToHouse = (e) => {
       });
       student.value = ""; //student.value must = a string value. 
     }
+    let sortedArray = sortStudentsByHouse(students);
+    studentBuilder(sortedArray); //run studentBuilder function to generate the card for the newly added student in the array. AKA - Rebiuld the DOM.
   }
-  studentBuilder(students); //run studentBuilder function to generate the card for the newly added student in the array. AKA - Rebiuld the DOM.
 
   document.querySelector('form').reset();
   //Reset the form after the button is clicked
 };
 
+//Return the sorted results of an array. First look at a and b to compare and sort based on schoolHouse property. I believe because it is comparing string values it returns them alphabetically. Next, if the schoolHouse properties are the same, sort by the name property. More Info: https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/ 
+const sortStudentsByHouse = (array) => {
+  return array.sort((a, b) => (a.schoolHouse > b.schoolHouse) ? 1 : (a.schoolHouse === b.schoolHouse) ? ((a.name > b.name) ? 1 : -1) : -1 )
+}
+
 // //Creates a pie container card on the DOM
 const studentBuilder = (taco) => {
   let domString = '';
-
   // FOR OF LOOP - This works!
   for (const [i, item] of taco.entries()) {
     const { name, schoolHouse } = item;
-    //   if (divId = "voldermorts-army") {
-    //     domString += `<div class="card m-3" style="width: 18rem;">
-    //           <div class="card-body">
-    //         <p class="card-text">Sadly, <b>${name}</b> went over to the dark side!</p>
-    //     </div>
-    // </div>`;
-    //   } else {
-    domString += `<div class="card" style="width: 18rem;" id=${i}>
+    domString += `<div class="card" style="width: 15rem; " id=${i}>
+        <div class="col" style="min-height: 60px; background-color: ${houseColors[schoolHouse]}">
+    </div>
+    <img class="card-img-top";  src=${houseCrest[schoolHouse]} >
     <div class="card-body">
       <p class="card-text" id="studentName">${name}</p>
       <p class="card-text"id="schoolHouse">${schoolHouse}</p>
@@ -91,24 +104,22 @@ const studentBuilder = (taco) => {
   </div>`;
   }
   printToDom("#first-years-card-display", domString);
-  // printToDom("#voldermorts-army", domString);
 };
 
 const evilBuilder = (taco) => {
   let domString = '';
-
   // FOR OF LOOP - This works!
   for (const [i, item] of taco.entries()) {
     const { name } = item;
     if (divId = "voldermorts-army") {
-    domString += `<div class="card m-3" style="width: 18rem;" id=${i}>
-              <div class="card-body">
-            <p class="card-text">Sadly, <b>${name}</b> went over to the dark side!</p>
+      domString += `<div class="card m-3" style="width: 15rem; background-color: #000000;" id=${i}>
+      <img class="card-img-top" src="https://cdn.images.express.co.uk/img/dynamic/36/590x/harry-potter-theory-voldemort-horcrux-1200870.jpg?r=1573053077046">
+            <p style="color:white" class="card-text">Sadly, <b>${name}</b> went over to the dark side!</p>
         </div>
     </div>`;
+    };
+    printToDom("#voldermorts-army", domString);
   };
-  printToDom("#voldermorts-army", domString);
-};
 };
 
 //OTHER OPTIONS!!
@@ -138,28 +149,6 @@ const evilBuilder = (taco) => {
 //   };
 //   printToDom('#first-years-card-display', domString);
 // };
-
-// const errorMessage = (student) => {
-//   if (student) {
-//       document.querySelector("#error-message").innerHTML = "";
-// } else {
-//     document.querySelector("#error-message").innerHTML = 
-//         `<div style="color: rgb(226, 13, 16);margin-bottom: 10px;">
-//         <b>Don't be shy. Speak a Name!</b>
-//       </div>`;
-//   }
-// };
-
-// function showError() {
-//   if (student = true) {
-//     document.getElementById("error-message").style.display = "block";
-//   } else {
-//     document.getElementById("error-message").style.display = "none";
-//    };
-// };
-
-
-
 
 const errorMessage = (student) => {
   if (student) {  //If student has a value when passed to the function set the div's innerHTML to nothing.

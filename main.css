@@ -5,3 +5,14 @@ body {
 .h3 {
   justify-content: center;
 }
+
+.first-years-card-display {
+justify-content: center;
+width: 100px;
+height: 100px;
+}
+
+.card-img-top {
+  object-fit: scale-down;
+  height: 150px;
+}
