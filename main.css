@@ -3,9 +3,9 @@ body {
 }
 
 .jumbotron {
-  background-color: darkgray;
-  margin: 50px;
+  background-color: lightgrey;
 }
+
 
 .student-form {
   border: solid 2px black;

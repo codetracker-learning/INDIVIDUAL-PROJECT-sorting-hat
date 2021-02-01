@@ -34,44 +34,43 @@ const cardBuilder = (e) => {
     <div class="card-body">
       <h5 class="card-title">${item.name}</h5>
       <p class="card-text">${item.house}</p>
-      <a href="#" class="btn btn-danger>Expel</a>
+      <a href="#" class="btn btn-danger" id=${i}>Expel</a>
     </div>
   </div>`
   });
 
-
   printToDom('#students', domString);
-}
+};
 
-const formContent = (e) => {
-  e.preventDefault ();
+// const formContent = (e) => {
+//   e.preventDefault ();
   
-  const name = document.querySelector('#name').Value;
-  const house =
+//   const name = document.querySelector('#name').Value;
+//   const house =
 
-  const obj = {
-    name,
-    house,
-  }
+//   const obj = {
+//     name,
+//     house,
+//   }
 
-  students.push(obj);
+//   students.push(obj);
 
-  cardBuilder(students);
+//   cardBuilder(students);
 
-  document.querySelector('form').reset();
-}
+//   document.querySelector('form').reset();
+// }
 
-const expelStudent = (e) => {
-  // write a formula to remove student card from student record
-}
+// const expelStudent = (e) => {
+//   // write a formula to remove student card from student record
+// }
 
-const buttonClick = () => {
-  document.querySelector('#start-btn').addEventListener('click', 'function');
-  document.querySelector('#sort-btn').addEventListener('click', 'function');
-}
+// const buttonClick = () => {
+//   document.querySelector('#start-btn').addEventListener('click', 'function');
+//   document.querySelector('#sort-btn').addEventListener('click', 'function');
+// }
 
 const init = () => {
-  buttonClick();
+  // buttonClick();
   cardBuilder(students);
 }
 
