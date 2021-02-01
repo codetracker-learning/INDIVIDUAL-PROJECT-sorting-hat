@@ -1,18 +1,31 @@
 body {
-  background-color: bisque;
+  background-color: rgb(142, 185, 233);
+}
+
+.jumbotron {
+  background-color: rgb(240, 223, 154);
+  padding-bottom: 5px;
 }
 
 .h3 {
   justify-content: center;
 }
 
-.first-years-card-display {
-justify-content: center;
-width: 100px;
-height: 100px;
+.new-student-cards {
+  min-height: 300px;;
 }
 
 .card-img-top {
   object-fit: scale-down;
   height: 150px;
+}
+
+.new-student-cards,
+.voldermort-cards {
+    width: 50%;
+    border: 4px solid rgba(0, 0, 0, 0.426);
+    border-radius: .25rem;
+    margin: 10px;
+    padding-top: 10px;
+    text-align: center;
 }

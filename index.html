@@ -12,7 +12,7 @@
 
 <body>
 
-  <div class="jumbotron text-center" id="jumbotron">
+  <div class="jumbotron text-center flex-wrap" id="jumbotron">
     <h1 class="display-4">I say Hog! You say Warts! HOG!</h1>
     <p class="lead">Welcome to the Hogwarts School of Witchcraft and Wizardy! I'm the Sorting Hat and I'm going to do
       just that! An honor such as this is a wonderful way for the school and community to recognize and celebrate the
@@ -45,25 +45,22 @@
     </div>
   </form>
 
-  <div class="container mt-3 text-center" id="all-student-cards">
-    <div class="cards d-center p-4">
+  <div class="cards d-flex p-4" id="all-student-cards">
+
+    <div class="new-student-cards">
       <!-- adds padding of 4 on all sides of the card.-->
-      <div class="new-cards">
-        <h4>First Year's</h4>
-        <div id="first-years-card-display" class="d-flex flex-wrap justify-content-center">
-        </div>
+      <h4>First Year's</h4>
+      <div id="first-years-card-display" class="d-flex flex-wrap justify-content-center">
       </div>
-      <div id="new-student" class="d-flex flex-wrap justify-content-around"></div>
     </div>
 
-    <div class="cards d-center p-4">
+    <div class="voldermort-cards">
       <!-- adds padding of 4 on all sides of the card.-->
-      <div class="voldemorts-cards">
-        <h4>Voldemort's (Yeah, I said it) Army</h4>
-        <div id="voldermorts-army" class="d-flex flex-wrap justify-content-center mb-5">
-        </div>
+      <h4>Voldemort's (Yeah, I said it) Army</h4>
+      <div id="voldermorts-army" class="d-flex flex-wrap justify-content-center">
       </div>
     </div>
+
   </div>
 
 

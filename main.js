@@ -1,11 +1,7 @@
 console.log("CONNECTED");
 
 const students = [
-  {
-    name: "Mitchell",
-    schoolHouse: "Gryffindoor",
-  }
-];
+ ];
 
 const voldermortsArmy = [];
 const houseColors = {
@@ -92,7 +88,7 @@ const studentBuilder = (taco) => {
   // FOR OF LOOP - This works!
   for (const [i, item] of taco.entries()) {
     const { name, schoolHouse } = item;
-    domString += `<div class="card" style="width: 15rem; " id=${i}>
+    domString += `<div class="card m-1" style="width: 15rem; " id=${i}>
         <div class="col" style="min-height: 60px; background-color: ${houseColors[schoolHouse]}">
     </div>
     <img class="card-img-top";  src=${houseCrest[schoolHouse]} >
@@ -112,7 +108,7 @@ const evilBuilder = (taco) => {
   for (const [i, item] of taco.entries()) {
     const { name } = item;
     if (divId = "voldermorts-army") {
-      domString += `<div class="card m-3" style="width: 15rem; background-color: #000000;" id=${i}>
+      domString += `<div class="card m-1" style="width: 15rem; background-color: #000000;" id=${i}>
       <img class="card-img-top" src="https://cdn.images.express.co.uk/img/dynamic/36/590x/harry-potter-theory-voldemort-horcrux-1200870.jpg?r=1573053077046">
             <p style="color:white" class="card-text">Sadly, <b>${name}</b> went over to the dark side!</p>
         </div>
