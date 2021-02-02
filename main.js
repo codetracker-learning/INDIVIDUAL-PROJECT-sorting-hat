@@ -87,13 +87,13 @@ const studentBuilder = (taco) => {
   // FOR OF LOOP - This works!
   for (const [i, item] of taco.entries()) {
     const { name, schoolHouse } = item;
-    domString += `<div class="card m-1" style="width: 18rem; background-color:rgba(26, 21, 2, 0.357);" id=${i}>
-        <div class="col" style="min-height: 60px; background-color: ${houseColors[schoolHouse]}">
+    domString += `<div class="card m-1" style="width: 18rem; background-color:rgba(26, 21, 2, 0.357); border: 4px groove; border-color: rgb(240, 223, 154); pb-4" id=${i}>
+        <div class="col" style=" border-bottom: 4px groove; border-color: rgb(240, 223, 154); min-height: 60px; background-color: ${houseColors[schoolHouse]}">
     </div>
     <img class="card-img-top" ;  src=${houseCrest[schoolHouse]} >
     <div class="card-body">
-      <p style ="color: white" class="card-text" id="studentName">${name}</p>
-      <p style ="color: white" class="card-text"id="schoolHouse">${schoolHouse}</p>
+      <p style ="color:  rgb(240, 223, 154)" class="card-text" id="studentName">${name}</p>
+      <p style ="color:  rgb(240, 223, 154)" class="card-text"id="schoolHouse">${schoolHouse}</p>
       <button type="button" id="${i}" class="btn btn-danger">EXPEL</button>
     </div>
   </div>`;
@@ -107,9 +107,9 @@ const evilBuilder = (taco) => {
   for (const [i, item] of taco.entries()) {
     const { name } = item;
     if (divId = "voldermorts-army") {
-      domString += `<div class="card m-1" style="width: 15rem; background-color: rgba(26, 21, 2, 0.357);" id=${i}>
+      domString += `<div class="card" style="width: 15rem; background-color: rgba(26, 21, 2, 0.357); border: 4px groove; border-color: rgb(240, 223, 154);" id=${i}>
       <img class="card-img-top" src="https://cdn.images.express.co.uk/img/dynamic/36/590x/harry-potter-theory-voldemort-horcrux-1200870.jpg?r=1573053077046">
-            <p style="color:white" class="card-text">Sadly, <b>${name}</b> went over to the dark side!</p>
+            <p style="color: rgb(240, 223, 154)" class="card-text">Oh No!, I always knew <b>${name}</b> had some evil in their veins!</p>
         </div>
     </div>`;
     };
@@ -163,8 +163,8 @@ const buttonEvents = () => {
   document.querySelector("#sort").addEventListener("click", addStudentToHouse);
   document.querySelector('#first-years-card-display').addEventListener("click", expelStudent);
   document.querySelector('#get-started').addEventListener('click', startMusic)
-
-
+  document.querySelector('#first-years-card-display').addEventListener("click", startDramatic);
+  document.querySelector("#sort").addEventListener("click", resetDramatic);
 };
 
 
@@ -182,6 +182,27 @@ const startMusic = (e) => {
     });
   }
 
+  function startDramatic() {
+    document.querySelector('#dramatic').src += "?autoplay=1";
+  };
+
+  function resetDramatic() {
+    document.querySelector('#dramatic').src = "https://www.dailymotion.com/embed/video/xovk9r";
+  };
+
+    // // document.querySelector("#dramatic").src += "?autoplay=1";
+      
+    // // var player = new Dailymotion.Player('#dramatic', {
+    // //     videoId: 'xovk9r',
+    // //     events: {
+    // //       'onReady': function (event) {
+    // //         event.target.setVolume(.05);
+    // //         event.target.playVideo();
+    //       }
+    //     }
+    //   });
+    // }
+
 
 
 const expelStudent = (e) => {
@@ -192,6 +213,7 @@ const expelStudent = (e) => {
     evilBuilder(voldermortsArmy);
   }
 }
+
 
 
 const init = () => {
