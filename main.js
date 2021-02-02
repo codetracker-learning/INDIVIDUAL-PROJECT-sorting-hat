@@ -43,41 +43,41 @@ const groupHouses = [
         imgurl: 'https://wizardingwonders.com/wp-content/uploads/harry-potter-hogwarts-house-flag-banner.jpg'
     } 
 ];
-
-const renderForm = (content, form) => {
-    const selectedForm = document.querySelector(form);
-    selectedForm.innerHTML = content;
-  };
-
-const appearForm = () => {
-    const content = `<form id="infoForm">
-                        <div class="form-name">
-                        <label for="inputName">Please enter your name:</label>
-                        <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp"      placeholder="EnterName">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>`
-
-renderForm('#infoForm', content); 
+// A function to select the inerr html (form, id)
+const renderForm = (divId, textToDom) => {
+    const selectedForm = document.querySelector(divId);
+    selectedForm.innerHTML = textToDom;
 };
-
-const handlebtnClick = (e) => {
+// A function to handle the "get started" btn click to target the form html
+const handleBtnClick = (e) => {
     const btnId = e.target.id;
   
-   
-    if (btnId === 'getStarted') {
-      document.querySelector('form').style.display;
-    } else {
-        console.log("Please click get started");
-    }
-}
+    if (btnId === "getStarted") {
+        document.querySelector("#infoform").innerHTML = 
+               `<div class="form-name" id=infoForm>
+                    <label for="inputName">Please enter your name:</label>
+                    <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp"      placeholder="EnterName">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+               </div>`
+        
+        document.querySelector("#submitBtn").addEventListener("click", pullForm); 
+      }  
+}; 
+            // selecting btn id adding click event listener 
+
+const pullForm = (e) => {
+    e.preventDefault();
+};
+// troubleshoot
 
 const btnEvents = () => {
-    document.querySelector("form").addEventListener("getStarted", renderForm);
-}
+    document.querySelector("#getStarted").addEventListener("click", handleBtnClick);
+};
+
+// create a function to handle all btn events 
 
 const init = () => {
     btnEvents();
-  }
+  };
   
   init();
