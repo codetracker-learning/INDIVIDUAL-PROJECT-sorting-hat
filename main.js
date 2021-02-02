@@ -170,7 +170,18 @@ const buttonEvents = () => {
 
 const startMusic = (e) => {
   document.querySelector("#background-music").src += "?autoplay=1";
-};
+  
+  var player = new Dailymotion.Player('#background-music', {
+      videoId: 'x3ulbtq',
+      events: {
+        'onReady': function (event) {
+          event.target.setVolume(.05);
+          event.target.playVideo();
+        }
+      }
+    });
+  }
+
 
 
 const expelStudent = (e) => {
