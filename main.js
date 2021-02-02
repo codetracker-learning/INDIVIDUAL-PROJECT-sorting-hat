@@ -29,6 +29,7 @@ const createForm = (e) => {
       </div>
     </form>`
     }
+  
 }
 
 // Prints student card
@@ -57,7 +58,10 @@ const createStudentObj = (e) => {
   const name = document.querySelector("#studentName").value;
   const school = houses[Math.floor(Math.random() * houses.length)];
 
-  const id = Math.floor(Math.random() * 100);
+//                        ********* REFACTOR THIS ********** 
+  const studentIds = students.map(student => student.id).sort((a, b) => a - b);
+  const id = studentIds.length ? studentIds[(studentIds.length - 1)] + 1 : 0;
+
 
   const obj = {
     name,
@@ -67,12 +71,27 @@ const createStudentObj = (e) => {
 
   students.push(obj);
   studentMaker(students);
+  //                      ********** RESET NOT WORKING *********
+  document.querySelector("#studentName").reset();
+}
+
+// Expels student when button is clicked
+const expelButton = (e) => {
+  targetType = e.target.type;
+  targetId = e.target.id;
+
+  if (targetType === "button") {
+    students.splice(targetId, 1);
+    studentMaker(students);
+  } 
 }
 
 
+// Triggers functions to execute when mouse events occur
 const buttonEvents = () => {
   document.querySelector('#sort').addEventListener('click', createForm);
   document.querySelector('#form').addEventListener('submit', createStudentObj);
+  document.querySelector('#students').addEventListener('click', expelButton)
 }
 
 
