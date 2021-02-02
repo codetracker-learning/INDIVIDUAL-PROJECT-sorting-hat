@@ -51,10 +51,18 @@ const sortingHat = () => {
   if (sortingHat === "Hufflepuffle") {
     document.querySelector('#excellent').src += "?autoplay=1";
     return sortingHat;
+  } else if (sortingHat === "Snakes") {
+    document.querySelector('#snake-sound').src += "?autoplay=1&start=04&end=06";
+    return sortingHat;
+  }   else if (sortingHat === "Gryffindoor") {
+    document.querySelector('#kitty').src += "?autoplay=1&start=03&end=07";
+    return sortingHat;
   } else {
-    document.querySelector('#excellent').src= "https://www.youtube.com/embed/7mi4h00fedY";
+    document.querySelector('#bird-noise').src += "?autoplay=1&start=03&end=07";
     return sortingHat;
   };
+
+
 
 };
 
@@ -172,6 +180,7 @@ const buttonEvents = () => {
   document.querySelector('#get-started').addEventListener('click', startMusic)
   document.querySelector('#first-years-card-display').addEventListener("click", startDramatic);
   document.querySelector("#sort").addEventListener("click", resetDramatic);
+  document.querySelector('#first-years-card-display').addEventListener("click", resetAudio);
   // document.querySelector("#sort").addEventListener("click", excellentSound);
 
 };
@@ -198,6 +207,13 @@ function startDramatic() {
 function resetDramatic() {
   document.querySelector('#dramatic').src = "https://www.dailymotion.com/embed/video/xovk9r";
 };
+
+function resetAudio () {
+  document.querySelector('#excellent').src= "https://www.youtube.com/embed/7mi4h00fedY";
+  document.querySelector('#snake-sound').src= "https://www.youtube.com/embed/sk6_M9bUx7U";
+  document.querySelector('#kitty').src= "https://www.youtube.com/embed/4sw23ODXIQI";
+  document.querySelector('#bird-noise').src = "https://www.youtube.com/embed/teXK2kOCkU8";
+}
 
 // function excellentSound () {
 //   if (sortingHat() == "Hufflepuffle") {
