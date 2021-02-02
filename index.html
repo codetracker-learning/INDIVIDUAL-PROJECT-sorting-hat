@@ -24,17 +24,19 @@
           Welcome First-years, now begins the Sorting Ceremony.
         </p>
         <hr class="my-4" />
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">
-            START SORTING
-          </a>
-        </p>
+        <button
+          class="btn btn-primary btn-lg"
+          href="#"
+          role="button"
+          onclick="showForm()"
+        >START SORTING
+        </button>
       </div>
     </div>
 
     <!-- FORM -->
     <div class="form-container p-4">
-      <form>
+      <form id="formElement" style="display: none">
         <div class="form-group">
           <div></div>
           <input
@@ -69,7 +71,10 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
               <a href="#" class="btn btn-primary">EXPEL</a>
             </div>
           </div>
