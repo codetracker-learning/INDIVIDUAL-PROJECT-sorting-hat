@@ -247,7 +247,8 @@ const expelStudent = (e) => {
   }
 }
 
-
+// var videoVolume = document.getElementById("#background-music");
+// videoVolume.volume=.2;
 
 const init = () => {
   studentBuilder(students);
