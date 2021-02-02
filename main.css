@@ -1,3 +1,7 @@
 body {
   background-color: antiquewhite;
 }
+
+#sortingDiv {
+  display: none;
+}
