@@ -175,6 +175,7 @@ const expelStudent = (e) => {
   }
 }
 
+window.onload = function() { document.​getElementById('background-music').style.display = 'none'; };
 
 const init = () => {
   studentBuilder(students);
