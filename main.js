@@ -162,9 +162,16 @@ const buttonEvents = () => {
   document.querySelector("#get-started").addEventListener("click", showForm);
   document.querySelector("#sort").addEventListener("click", addStudentToHouse);
   document.querySelector('#first-years-card-display').addEventListener("click", expelStudent);
+  document.querySelector('#get-started').addEventListener('click', startMusic)
 
 
 };
+
+
+const startMusic = (e) => {
+  document.querySelector("#background-music").src += "?autoplay=1";
+};
+
 
 const expelStudent = (e) => {
   if (e.target.type === 'button') {
