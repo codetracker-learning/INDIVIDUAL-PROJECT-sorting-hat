@@ -4,15 +4,17 @@ const students = [
     // name: ,
     // house: ,
     // color: ,
-  // },
-];
-
+    // text:,
+    // },
+  ];
+  
 const trueBelievers = [
-  {
+  // {
     // name:
     // house: "It's Marvel Baby!",
     // color: "red";
-  }
+    // text:,
+  // }
 ];
 // End arrays section
 
@@ -36,10 +38,10 @@ const studentRosterBuilder = (arrayOfObjects) => {
 
   arrayOfObjects.forEach((object, i) => {
     domString += `<div class="card my-2" style="width: 20rem;" id=${i}>
-                    <div class="card-body">
+                    <div class="card-body ${object.color} ${object.text}">
                       <h.card-title>${object.name}</h.card-title>
                       <p class="card-text">${object.house}</p>
-                      <button type="button" class="btn btn-danger" id="${i}">Expulsion! </button>
+                      <button type="button" class="btn bg-danger bg-gradient border border-dark border-3 rounded-pill" id="${i}">Expulsion! </button>
                     </div>
                   </div>
     `
@@ -59,17 +61,40 @@ const enrollStudent = (e) => {
   // Grab values from the form
   const name = document.querySelector("#name").value;
         // note this is placeholder, will build a randomizer function
-  const houses = ["Gryffindor","Hufflepuff","Ravenclaw","Slytherin"];
+  const houses = [
+    {
+      house:"Gryffindor",
+      color:"bg-danger",
+      text:"text-white"
+    },
+    {
+      house:"Hufflepuff",
+      color:"bg-warning",
+      text:"text-dark",
+    },
+    {
+      house:"Ravenclaw",
+      color:"bg-primary",
+      text:"text-white",
+    },
+    {
+      house:"Slytherin",
+      color:"bg-success",
+      text:"text-white",
+    },
+  ];
   const random = Math.floor(Math.random()*houses.length);
-  const house = houses[random];
-        // note this is placeholder, will implement bg-color associated with house (likely refactor randomizer above to an array of objects with house and color attributes)
-  const color = "red";
+  const sort = houses[random];
+  const house = sort.house;
+  const color = sort.color;
+  const text = sort.text;
 
   // Shorthand object notation to add form detail to students array
   const obj = {
     name,
     house,
     color,
+    text,
   };
 
   // Push new entry into students array
