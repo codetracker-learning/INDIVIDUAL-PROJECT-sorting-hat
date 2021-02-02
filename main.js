@@ -1,10 +1,10 @@
 // Start arrays section
 const students = [
-  { 
+  // { 
     // name: ,
     // house: ,
     // color: ,
-  },
+  // },
 ];
 
 const trueBelievers = [
@@ -48,10 +48,10 @@ const studentRosterBuilder = (arrayOfObjects) => {
                     <div class="card-body">
                       <h.card-title>${object.name}</h.card-title>
                       <p class="card-text">${object.house}</p>
+                      <button type="button" class="btn btn-danger" id="${i}">Expulsion! </button>
                     </div>
                   </div>
     `
-    console.log(object)
     printToDom("#studentCards",domString);
 
   })
@@ -89,7 +89,19 @@ const enrollStudent = (e) => {
 
 };
 // Create function to expel student and enlist them in trueBelievers instead
+const expelStudent = (e) => {
+  const targetType = e.target.type;
+  const targetId = e.target.id;
 
+  if (targetType==="button" && students.length > 1) {
+    console.log(targetId);
+    students.splice(targetId,1);
+  } else if (targetType==="button" && students.length == 1) {
+    const students = [];
+  }
+
+  studentRosterBuilder(students);
+};
 // End anonymous functions
 
 
@@ -97,7 +109,10 @@ const enrollStudent = (e) => {
 // Start Event recording
 // Capture button clicks and say what they do
 const buttonEvents = () => {
+  // listen for submit button
   document.querySelector("form").addEventListener("submit", enrollStudent);
+  // listen for delete button
+  document.querySelector("#studentCards").addEventListener("click",expelStudent);
 };
 // End Event recording
 
