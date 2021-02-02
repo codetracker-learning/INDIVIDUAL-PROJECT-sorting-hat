@@ -21,15 +21,6 @@ const trueBelievers = [
 function showForm() {
   document.querySelector("#sortingDiv").style.display = "block";
 };
-
-// Validate form -- NEED TO MAKE SURE THIS WORKS
-function validateForm() {
-  var x = document.forms["sortForm"]["name"].value;
-  if (x == "") {
-    alert("We need a name, dwaog!");
-    return false;
-  }
-}
 // End SPA interactivity functions sections
 
 // Start print to DOM section
@@ -68,7 +59,10 @@ const enrollStudent = (e) => {
   // Grab values from the form
   const name = document.querySelector("#name").value;
         // note this is placeholder, will build a randomizer function
-  const house = "Griffendor";
+  const houses = ["Gryffindor","Hufflepuff","Ravenclaw","Slytherin"];
+  const random = Math.floor(Math.random()*houses.length);
+  const house = houses[random];
+        // note this is placeholder, will implement bg-color associated with house (likely refactor randomizer above to an array of objects with house and color attributes)
   const color = "red";
 
   // Shorthand object notation to add form detail to students array
@@ -121,7 +115,6 @@ const buttonEvents = () => {
 // Create init() function
 const init = () => {
   buttonEvents();
-  // validateForm();
 };
 
 init();
