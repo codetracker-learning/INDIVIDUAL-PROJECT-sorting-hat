@@ -6,57 +6,78 @@ const houses = [
   "Hufflepuff",
   "Ravenclaw",
   "Slytherin",
+  "Voldemort's Army",
 ]
 
+//Prints to DOM
 const printToDom = (divId, string) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = string;
 }
 
-// const studentMaker = (studentArr) => {
-//   let cardString = '';
-
-//   studentArr.forEach((item, i)) {
-//     cardString += `<div class="card" style="width: 18rem;" id="${i}">
-//     <div class="card-body">
-//       <h5 class="card-title">${studentArr[i].name}</h5>
-//       <p class="card-text">${studentArr[i].school}</p>
-//       <button type="button" class="btn btn-danger" id=${studentArr[i].id}>Expel</button>
-//     </div>
-//   </div>`;
-//   };
-  
-//   printToDom("#students", cardString);
-
-//   students.push()
-// }
-
+// Creates the form after "Sort!" button is clicked
 const createForm = (e) => {
   let formId = e.target.id;
 
   if (formId === "sort") {
     document.querySelector("#form").innerHTML=
-    `<form>
+    `<form id="inputForm>
       <div class="mb-3">
         <label for="exampleStudentInput" class="form-label">New Student Name</label>
-        <input type="name" class="form-control" id="studentName" aria-describedby="nameInput">
-        <div id="nameInput" class="form-text">Find you school!.</div>
+        <input type="text" class="form-control" id="studentName">
+        <div class="form-text">Find you school!</div>
       </div>
     </form>`
     }
-  document.querySelector("#studentName").
 }
 
+// Prints student card
+const studentMaker = (studentArr) => {
+  let cardString = '';
+
+  studentArr.forEach((item, i) => {
+    cardString += `<div class="card" style="width: 18rem;" id="${i}">
+    <div class="card-body">
+      <h5 class="card-title">${item.name}</h5>
+      <p class="card-text">${item.school}</p>
+      <button type="button" class="btn btn-danger" id=${item.id}>Expel</button>
+    </div>
+  </div>`;
+  });
+  
+  printToDom("#students", cardString);
+
+}
+
+// Creates student object to be pushed into "student" array with input from form id
+const createStudentObj = (e) => {
+  
+  e.preventDefault();
+
+  const name = document.querySelector("#studentName").value;
+  const school = houses[Math.floor(Math.random() * houses.length)];
+
+  const id = Math.floor(Math.random() * 100);
+
+  const obj = {
+    name,
+    school,
+    id,
+  }
+
+  students.push(obj);
+  studentMaker(students);
+}
 
 
 const buttonEvents = () => {
   document.querySelector('#sort').addEventListener('click', createForm);
+  document.querySelector('#form').addEventListener('submit', createStudentObj);
 }
 
 
 const init = () => {
   buttonEvents();
-  // studentMaker(students);
 }
 
 init();
