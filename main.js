@@ -93,14 +93,15 @@ const expelStudent = (e) => {
   const targetType = e.target.type;
   const targetId = e.target.id;
 
-  if (targetType==="button" && students.length > 1) {
-    console.log(targetId);
+  if (targetType==="button") {
     students.splice(targetId,1);
-  } else if (targetType==="button" && students.length == 1) {
-    const students = [];
-  }
+  } 
 
-  studentRosterBuilder(students);
+  if (students.length != 0) {
+    studentRosterBuilder(students);
+  } else {
+    printToDom("#studentCards","");
+  }
 };
 // End anonymous functions
 
