@@ -48,7 +48,14 @@ function showForm() {
 const sortingHat = () => {
   const houses = ["Gryffindoor", "Snakes", "Hufflepuffle", "Ravenclaw"]; //define the houses to sort between
   let sortingHat = houses[Math.floor(Math.random() * houses.length)]; //define what we will return. Example: https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array 
-  return sortingHat;
+  if (sortingHat === "Hufflepuffle") {
+    document.querySelector('#excellent').src += "?autoplay=1";
+    return sortingHat;
+  } else {
+    document.querySelector('#excellent').src= "https://www.youtube.com/embed/7mi4h00fedY";
+    return sortingHat;
+  };
+
 };
 
 
@@ -165,43 +172,53 @@ const buttonEvents = () => {
   document.querySelector('#get-started').addEventListener('click', startMusic)
   document.querySelector('#first-years-card-display').addEventListener("click", startDramatic);
   document.querySelector("#sort").addEventListener("click", resetDramatic);
+  // document.querySelector("#sort").addEventListener("click", excellentSound);
+
 };
 
 
 const startMusic = (e) => {
   document.querySelector("#background-music").src += "?autoplay=1";
-  
+
   var player = new Dailymotion.Player('#background-music', {
-      videoId: 'x3ulbtq',
-      events: {
-        'onReady': function (event) {
-          event.target.setVolume(.05);
-          event.target.playVideo();
-        }
+    videoId: 'x3ulbtq',
+    events: {
+      'onReady': function (event) {
+        event.target.setVolume(.05);
+        event.target.playVideo();
       }
-    });
-  }
+    }
+  });
+}
 
-  function startDramatic() {
-    document.querySelector('#dramatic').src += "?autoplay=1";
-  };
+function startDramatic() {
+  document.querySelector('#dramatic').src += "?autoplay=1";
+};
 
-  function resetDramatic() {
-    document.querySelector('#dramatic').src = "https://www.dailymotion.com/embed/video/xovk9r";
-  };
+function resetDramatic() {
+  document.querySelector('#dramatic').src = "https://www.dailymotion.com/embed/video/xovk9r";
+};
 
-    // // document.querySelector("#dramatic").src += "?autoplay=1";
-      
-    // // var player = new Dailymotion.Player('#dramatic', {
-    // //     videoId: 'xovk9r',
-    // //     events: {
-    // //       'onReady': function (event) {
-    // //         event.target.setVolume(.05);
-    // //         event.target.playVideo();
-    //       }
-    //     }
-    //   });
-    // }
+// function excellentSound () {
+//   if (sortingHat() == "Hufflepuffle") {
+//     document.querySelector('#excellent').src += "?autoplay=1";
+//   } else {
+//     document.querySelector('#excellent').src += "https://www.youtube.com/embed/7mi4h00fedY";
+//   };
+// };
+
+// // document.querySelector("#dramatic").src += "?autoplay=1";
+
+// // var player = new Dailymotion.Player('#dramatic', {
+// //     videoId: 'xovk9r',
+// //     events: {
+// //       'onReady': function (event) {
+// //         event.target.setVolume(.05);
+// //         event.target.playVideo();
+//       }
+//     }
+//   });
+// }
 
 
 
