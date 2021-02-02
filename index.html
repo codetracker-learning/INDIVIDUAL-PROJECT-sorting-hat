@@ -5,43 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>Sorting Hat</title>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container mt-3 text-center">
         <div class="sorting-hat-insttructions">
-            <div class="welcome-message">
 
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to Hoggy Hoggy Warts!</h1>
+                <p class="lead">Stupefy alohomora totalus orchideous inflamari locomotor momentum serpensortia totalus. Patronum kedavra legilimens petrificus expecto banishing expecto patronum arania mobilicorpus petrificus.</p>
+                <hr class="my-4">
+                <p>Enervate serpensortia deletrius evanesco imperio furnunculus impedimenta.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button" id="btnStartSorting">Let's Start Sorting</a>
             </div>
-
-            <hr />
-            <div class="message-spell">
-
-            </div>
-            <button type="start" class="btn btn-secondary">Let's Start Sorting</button>
         </div>
-        <div class="enter-first-years-name">
+        <div class="enter-first-years-name ">
+            <form id="studentForm">
 
-            <button type="sort" class="btn btn-secondary">Sort</button>
-        </div>
-        <div class="names-of-first-years mb-5">
+                <!-- <div class="row mt-3 text-center">
+                    <legend>Enter First Year's Name</legend>
 
+                    <div class="col-auto">
+                        <label for="lblStudent" class="col-form-label">Student</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="new-student-name" class="form-control">
+                    </div>
+                    <div class="col-auto">
+                        <a type="submit" class="btn btn-primary btn-lg">Sort</a>
+                    </div>
+                </div> -->
+
+            </form>
         </div>
+
 
 
     </div>
 
+    <div class="names-of-first-years ">
+
+        <legend>First Year's</legend>
 
 
+        <div id="sortedNames" class="d-flex flex-wrap justify-content-around"></div>
 
+    </div>
 
+    <!-- <div id="sortedNames" class="d-flex flex-wrap justify-content-around">
+        </div> -->
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
     <script src="main.js"></script>
 </body>
 

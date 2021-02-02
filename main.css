@@ -4,5 +4,38 @@ body {
     background-color: beige;
 }
 
+.card {
+    /* max-width: 50px;
+    max-height: 50px; */
+    height: 300px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* .leftCardC {
+    background-color: '#7F0909';
+    height: 200px;
+    min-width: 200px;
+    background-size: cover;
+    background-position: center;
+} */
+
+
+/* 
+.centerCardC {
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    min-width: 200px;
+} */
+
+
+/* .rightCardC {
+    background-color: '#FFC500';
+    height: 200px;
+} */
+
 
 /* END of Main.css */
