@@ -1,7 +1,7 @@
 console.log("CONNECTED");
 
 const students = [
-  ];
+];
 
 const voldermortsArmy = [];
 const houseColors = {
@@ -26,11 +26,10 @@ function showForm() {
   document.getElementById("myForm").style.display = "block";
 }; // sets the myForm div display type to block upon clicking the Get Started button.
 
-//DOESNT WORK
+// DOESNT WORK
 // const showForm = () => {
 //   const content = `<div class="mb-3 justify-content-center">
 //         <div class="form-body text-center">
-//           <!-- Need to place the elements of the form within it's own card container so they can manipulated within the form itself. -->
 //           <h3>
 //             Speak Thy First and Last Name
 //           </h3>
@@ -79,7 +78,7 @@ const addStudentToHouse = (e) => {
 
 //Return the sorted results of an array. First look at a and b to compare and sort based on schoolHouse property. I believe because it is comparing string values it returns them alphabetically. Next, if the schoolHouse properties are the same, sort by the name property. More Info: https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/ 
 const sortStudentsByHouse = (array) => {
-  return array.sort((a, b) => (a.schoolHouse > b.schoolHouse) ? 1 : (a.schoolHouse === b.schoolHouse) ? ((a.name > b.name) ? 1 : -1) : -1 )
+  return array.sort((a, b) => (a.schoolHouse > b.schoolHouse) ? 1 : (a.schoolHouse === b.schoolHouse) ? ((a.name > b.name) ? 1 : -1) : -1)
 }
 
 // //Creates a pie container card on the DOM
