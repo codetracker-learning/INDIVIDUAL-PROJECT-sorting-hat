@@ -1,20 +1,20 @@
 console.log("CONNECTED");
 
 const students = [
- ];
+  ];
 
 const voldermortsArmy = [];
 const houseColors = {
-  Gryffindoor: "#7F0909",
-  Snakes: "#0D6217",
-  Hufflepuffle: "#EEE117",
-  Ravenclaw: "#000A90"
+  Gryffindoor: "rgba(127, 9, 9, 0.42);",
+  Snakes: "rgba(13, 98, 23, .42)",
+  Hufflepuffle: "rgba(238, 225, 23, .42)",
+  Ravenclaw: "rgba(0, 10, 144, .42)",
 };
 const houseCrest = {
-  Gryffindoor: "https://img.fruugo.com/product/7/49/46790497_max.jpg",
-  Snakes: "https://i.ebayimg.com/images/g/IgMAAOSw0exaGEr~/s-l500.jpg",
-  Hufflepuffle: "https://i.ebayimg.com/images/g/T-oAAOSw~Lpcm-e4/s-l400.jpg",
-  Ravenclaw: "https://s4.thcdn.com//productimg/1600/1600/12024630-1024653879759849.jpg"
+  Gryffindoor: "https://media2.giphy.com/media/GvMo19TyWuMiQ/giphy.gif",
+  Snakes: "https://media0.giphy.com/media/KzvN3LrGoLtPG/giphy.gif",
+  Hufflepuffle: "https://media2.giphy.com/media/PMp40oEvNfKve/giphy.gif",
+  Ravenclaw: "https://media1.tenor.com/images/e868ee9543921490391f917a3d70604f/tenor.gif?itemid=5254360"
 }
 
 const printToDom = (divId, textToPrint) => {
@@ -88,13 +88,13 @@ const studentBuilder = (taco) => {
   // FOR OF LOOP - This works!
   for (const [i, item] of taco.entries()) {
     const { name, schoolHouse } = item;
-    domString += `<div class="card m-1" style="width: 15rem; " id=${i}>
+    domString += `<div class="card m-1" style="width: 18rem; background-color:rgba(26, 21, 2, 0.357);" id=${i}>
         <div class="col" style="min-height: 60px; background-color: ${houseColors[schoolHouse]}">
     </div>
-    <img class="card-img-top";  src=${houseCrest[schoolHouse]} >
+    <img class="card-img-top" ;  src=${houseCrest[schoolHouse]} >
     <div class="card-body">
-      <p class="card-text" id="studentName">${name}</p>
-      <p class="card-text"id="schoolHouse">${schoolHouse}</p>
+      <p style ="color: white" class="card-text" id="studentName">${name}</p>
+      <p style ="color: white" class="card-text"id="schoolHouse">${schoolHouse}</p>
       <button type="button" id="${i}" class="btn btn-danger">EXPEL</button>
     </div>
   </div>`;
@@ -108,7 +108,7 @@ const evilBuilder = (taco) => {
   for (const [i, item] of taco.entries()) {
     const { name } = item;
     if (divId = "voldermorts-army") {
-      domString += `<div class="card m-1" style="width: 15rem; background-color: #000000;" id=${i}>
+      domString += `<div class="card m-1" style="width: 15rem; background-color: rgba(26, 21, 2, 0.357);" id=${i}>
       <img class="card-img-top" src="https://cdn.images.express.co.uk/img/dynamic/36/590x/harry-potter-theory-voldemort-horcrux-1200870.jpg?r=1573053077046">
             <p style="color:white" class="card-text">Sadly, <b>${name}</b> went over to the dark side!</p>
         </div>
