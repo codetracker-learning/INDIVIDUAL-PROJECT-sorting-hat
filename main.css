@@ -1,7 +1,63 @@
 body {
-  background-color: bisque;
+    background-image: url("https://31.media.tumblr.com/adf5f9342b3070574db479460068938a/tumblr_n5hh5fJjIe1tp2oimo1_1280.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+        
+  }
+
+.jumbotron {
+  background-color: rgba(39, 33, 6, 0.542);
+  padding-bottom: 5px;
+  font-family: 'Harry Potter', arial; 
+  font-size: 20pt;
+  padding-top: 20px;
+  text-shadow: 2px 2px black;
+ }
+
+
+
+.h4 {
+  color: antiquewhite;
+  font-family: 'Harry Potter', arial;
+  text-shadow: 2px 2px black;
 }
 
 .h3 {
   justify-content: center;
+  font-family: 'Lumos', arial;
+  text-shadow: 2px 2px black;
+}
+
+.new-student-cards {
+  min-height: 300px;;
+  font-family: 'Harry Potter', arial;
+  text-shadow: 2px 2px black;
+}
+.form-body {
+  padding-top: 15px;
+  font-family: 'Harry Potter', arial;
+  text-shadow: 2px 2px black;
+}
+
+.card-img-top {
+  object-fit: scale-down;
+  height: 150px;
+}
+
+.new-student-cards,
+.voldermort-cards {
+    width: 50%;
+    border: 4px solid rgb(240, 223, 154);
+    border-radius: .25rem;
+    margin: 10px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Harry Potter', arial;
+    text-shadow: 2px 2px black;
+}
+
+.card-img-top {
+  size: cover;
+  width: 100%;
 }
