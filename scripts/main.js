@@ -1,65 +1,67 @@
+const hat = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
-const hats = [
-  {
-    name: "Dusty",
-    color: "Green",
-  },
-];
+const students = [];
 
 const printToDom = (divId, printText) => {
   const selectedHat = document.querySelector(divId);
   selectedHat.innerHTML = printText;
 };
 
-const hatForm = (obj) => {
-  `<div class="card" style="width: 18rem;">
+const cardForm = () => {
+
+  let form = `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>`
+  printToDom('#form', form);
+  document.querySelector("#studentForm").addEventListener('click', formInfo);
 };
-printToDom(domString);
 
-const cardBuilder = (hatArray) => {
+const studentCard = (hatArray) => {
   let domString = "";
 
-  hatArray.forEach((element, i) => {
+  hatArray.forEach((element) => {
     domString += `<div class="card mb-3" style="width: 18rem;" id=${i}>      
       <div class="card-body">
-        <p class="card-text">${element[i].name}</p>
-        <p class="card-text">${element[i].color}</p>
-        <button type="button" class="btn btn-danger" id="${element[i].id}">Expel!</button>
+        <p class="card-text">${element.name}</p>
+        <p class="card-text">${element.house}</p>
+        <button type="button" class="btn btn-danger" id="${element.id}">Expel!</button>
       </div>`;
   })
   printToDom('#hats', domString);
 };
 
 const buttonClick = (event) => {
+  const studentName = document.querySelector("#studentName").value;
+  const newStudent = {
+    studentName,
+    house: "slytherin",
+  };
+  students.push(newStudent);
+}
 
-};
+const deleteCard = (e) => {
+  const targetType = (e.target.type);
+  const targetId = (e.target.id);
 
-const deleteCard = (e) = {
-  const targetType = e.target.type;
-  const targetId = e.target.id;
-
-  if(targetType === "button") {
-    const hatIndex = hats.findIndex((hat) => hat.id === targetId);
-hats.splice(hatIndex, 1)
+  if (targetType === "button") {
+    const studentIndex = students.findIndex((student) => student.id === targetId);
+    studentList.splice(studentIndex, 1);
   }
+  studentCard();
 };
 
 const clickEvents = (event) => {
-  const buttonId = event.target.id;
 
-  document.querySelector('#').addEventListener('click', buttonClick);
-  document.querySelector('#').addEventListener('click', buttonClick);
-  document.querySelector('#').addEventListener('click', deleteCard);
+  document.querySelector('#sort-hat').addEventListener('click', cardForm);
+  document.querySelector('#hats').addEventListener('click', buttonClick);
 };
 
 const initialize = () => {
   clickEvents();
-  hatBuilder(hats);
+  // cardBuilder(studentList);
 };
 initialize();
