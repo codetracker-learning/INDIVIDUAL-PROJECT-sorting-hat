@@ -1,7 +1,3 @@
-
-* Visit Site Via Netlify: 
-* Loom Video Walkthrough: 
-
 * Name of the Project: Welcome to Hawthornes! (Sorting Hat Project)
 * Overview of the project: Randomly sorts a student into a Harry Potter house
 * Link to the deployed project: https://mg-sorting-hat.netlify.app/
