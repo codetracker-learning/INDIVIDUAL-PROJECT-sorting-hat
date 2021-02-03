@@ -37,21 +37,23 @@
     <!-- FORM -->
     <div class="form-container p-4">
       <form id="formElement" style="display: none">
-        <div class="form-group">
+        <div class="form-group" >
           <input
+            required
             type="text"
             class="form-control"
             id="student-name"
             placeholder="Student Name Here"
-            required
-          />
+            />
         </div>
-        <button type="button" class="btn btn-primary mb-2" id='sort'>SORT</button>
+        <button type="button" class="btn btn-primary mb-2" id="sort">SORT</button>
       </form>
     </div>
 
     <!-- STUDENT CONTAINER -->
-    <div id="studentContainer"></div>
+    <div id="studentContainer" class="studentContainer" d-flex p-4>
+
+    </div>
 
 
     <script
