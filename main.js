@@ -10,6 +10,16 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
+function toggleHide () {
+const hidesBtn = document.querySelector("#toggle");
+if (hidesBtn.style.display === "none") {
+  hidesBtn.style.display = "block";
+} else {
+  hidesBtn.style.display = "none";
+  }
+}
+
+
 const createStudentsCards = (taco) => {
   let domString = '';
   studentsArr.forEach((item, i) => {
