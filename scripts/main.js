@@ -36,7 +36,7 @@ const cardForm = (obj) => {
 const cardBuilder = (hatArray) => {
   let domString = "";
 
-  hatArray.forEach((element, i) => {
+  hatArray.forEach((element) => {
     domString += `<div class="card mb-3" style="width: 18rem;" id=${i}>      
       <div class="card-body">
         <p class="card-text">${element.name}</p>
@@ -45,11 +45,17 @@ const cardBuilder = (hatArray) => {
       </div>`;
   })
   printToDom('#students', domString);
+  cardBuilder();
 };
 
 const buttonClick = (event) => {
-
-};
+  const studentName = document.querySelector("#studentName").value;
+  const newStudent = {
+    studentName,
+    house: "slytherin",
+  };
+  students.push(newStudent);
+}
 
 const deleteCard = (e) => {
   const targetType = (e.target.type);
@@ -64,7 +70,7 @@ const deleteCard = (e) => {
 };
 
 const clickEvents = (event) => {
-  const buttonId = event.target.id;
+  // const buttonId = event.target.id;
 
   document.querySelector('#form').addEventListener('click', buttonClick);
   document.querySelector('#students').addEventListener('click', buttonClick);
@@ -73,6 +79,6 @@ const clickEvents = (event) => {
 
 const initialize = () => {
   clickEvents();
-  cardBuilder(hats);
+  cardBuilder(studentList);
 };
 initialize();
