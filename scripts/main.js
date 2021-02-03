@@ -1,39 +1,26 @@
-const studentList = [
-  {
-    studentName: 'Martin',
-    house: "Gryffindor",
-  },
-  {
-    studentName: "Sara",
-    house: "Ravenclaw",
-  },
-  {
-    studentName: "Nick",
-    house: "Slytherin",
-  }
-];
+const hat = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
-const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+const students = [];
 
 const printToDom = (divId, printText) => {
   const selectedHat = document.querySelector(divId);
   selectedHat.innerHTML = printText;
 };
 
-const cardForm = (obj) => {
-  const buttonId = e.target.id;
+const cardForm = () => {
 
-  document.querySelector("studentForm").innerHTML =
-    `<div class="card" style="width: 18rem;">
+  let form = `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>`
+  printToDom('#form', form);
+  document.querySelector("#studentForm").addEventListener('click', formInfo);
 };
 
-const cardBuilder = (hatArray) => {
+const studentCard = (hatArray) => {
   let domString = "";
 
   hatArray.forEach((element) => {
@@ -44,8 +31,7 @@ const cardBuilder = (hatArray) => {
         <button type="button" class="btn btn-danger" id="${element.id}">Expel!</button>
       </div>`;
   })
-  printToDom('#students', domString);
-  cardBuilder();
+  printToDom('#hats', domString);
 };
 
 const buttonClick = (event) => {
@@ -62,23 +48,20 @@ const deleteCard = (e) => {
   const targetId = (e.target.id);
 
   if (targetType === "button") {
-    const studentIndex = students.findIndex((hat) => hat.id === targetId);
-    let deleteCard = studentList.splice(studentIndex, 1);
+    const studentIndex = students.findIndex((student) => student.id === targetId);
+    studentList.splice(studentIndex, 1);
   }
-  cardBuilder(studentList);
-
+  studentCard();
 };
 
 const clickEvents = (event) => {
-  // const buttonId = event.target.id;
 
-  document.querySelector('#form').addEventListener('click', buttonClick);
-  document.querySelector('#students').addEventListener('click', buttonClick);
-  document.querySelector('#delete').addEventListener('click', deleteCard);
+  document.querySelector('#sort-hat').addEventListener('click', cardForm);
+  document.querySelector('#hats').addEventListener('click', buttonClick);
 };
 
 const initialize = () => {
   clickEvents();
-  cardBuilder(studentList);
+  // cardBuilder(studentList);
 };
 initialize();
