@@ -9,6 +9,7 @@
 </head>
 <body>
   <h1>SORTING HAT</h1>
+  
  <!-- JUMBOTRON -->
   <div class="jumbotron ">
     <h1 class="display-4">Hello, world!</h1>
@@ -16,33 +17,27 @@
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Let's start sorting!</a>
+      <a class="btn btn-primary btn-lg" href="#" type="button">Let's start sorting!</a>
     </p>
   </div>
 
-  <!-- STUDENT ENTRY FORM -->
-  <div class="student-form mb-3">
-    <h2 class="text-justify">Enter First Year's Name</h2>
-    <form id="student-form">
-    <div class="d-flex justify-content-around">  
-        <label for="Name" class="form-label">Student:</label>
-        <input type="text" class="form" id="name" required>  
-        <button type="submit" class="btn btn-primary">Sort!</button>    
+  <form>
+    <div class class="mb-3">
+      <label for="studentName" class="form-label">Enter Student's Name</label>
+      <input type="text" class="form-control" placeholder="name" id="studentName">
+      <button type="submit" id="sortBtn" class="btn btn-primary">Sort!</button>
     </div>
-    </form>
-  </div>
+  </form>
+
+  <div id="studentCards"></div>
+  
+
+  <!-- STUDENT ENTRY FORM -->
+  
  
   <!-- HOUSE ASSIGNMENT CARDS -->
 
-<div class="card-container">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title d-flex justify-content-around">First Year's Name</h5>
-      <p class="card-text d-flex justify-content-around">Assigned House</p>
-      <a href="#" class="btn btn-primary d-flex justify-content-around">Expel</a>
-    </div>
-  </div>
-</div>
+
 
 
 
