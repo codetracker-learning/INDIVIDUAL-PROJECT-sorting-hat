@@ -7,6 +7,15 @@ const studentArray = [];
     selectedDiv.innerHTML = textToPrint;
   }
 
+function toggleFunc () {
+  const hider = document.querySelector("#hiddenForm");
+  if (hider.style.display === "none") {
+    hider.style.display = "block";
+  } else {
+    hider.style.display = "none";
+  }
+}
+
 const createStudentCards = () => {
   let domString = '';
   studentArray.forEach((item, i) => {
