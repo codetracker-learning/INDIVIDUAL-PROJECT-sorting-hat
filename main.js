@@ -2,19 +2,19 @@ console.log("CONNECTED");
 
 const studentArray = [];
 
-  const printToDom = (divId, textToPrint) => {
-    const selectedDiv = document.querySelector(divId);
+const printToDom = (divId, textToPrint) => {
+  const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToPrint;
   }
 
-function toggleFunc () {
+  function toggleFunc () {
   const hider = document.querySelector("#hiddenForm");
-  if (hider.style.display === "none") {
-    hider.style.display = "block";
-  } else {
-    hider.style.display = "none";
+    if (hider.style.display === "none") {
+      hider.style.display = "block";
+    } else {
+      hider.style.display = "none";
+    }
   }
-}
 
 const createStudentCards = () => {
   let domString = '';
