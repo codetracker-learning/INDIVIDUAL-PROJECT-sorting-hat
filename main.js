@@ -42,6 +42,7 @@ const studentName = document.querySelector("#studentName").value;
   createStudentCards();
 }
 
+
 const buttonEvents = () => {
   document.querySelector("#sortBtn").addEventListener('click', handleButtonClick);
 }
