@@ -1,3 +1,5 @@
+import printToDom  from './printToDom.js';
+
 const students = [];
 
 const houses = [ 
@@ -6,12 +8,6 @@ const houses = [
   "Ravenclaw",
   "Slytherin",
 ]
-
-//Prints to DOM
-const printToDom = (divId, string) => {
-  const selectedDiv = document.querySelector(divId);
-  selectedDiv.innerHTML = string;
-}
 
 // Prints student card
 const studentMaker = (studentArr) => {
@@ -28,23 +24,6 @@ const studentMaker = (studentArr) => {
   });
 
   printToDom("#students", cardString);
-}
-
-// Creates the form after "Sort!" button is clicked
-const createForm = (e) => {
-  let formId = e.target.id;
-
-  if (formId === "sort") {
-    document.querySelector("#form").innerHTML = `<form id="inputForm>
-                                                  <div class="mb-3">
-                                                    <label for="exampleStudentInput" class="form-label">New Student Name</label>
-                                                    <input type="text" class="form-control" id="studentName">
-                                                    <div class="form-text">Find your school!</div>
-                                                    <button id="create" type="button" class="btn btn-primary">Submit</button>
-                                                  </div>
-                                                </form>`
-  }
-  document.querySelector('#create').addEventListener('click', createStudentObj);
 }
 
 // Creates student object to be pushed into "student" array with input from form id
@@ -84,8 +63,8 @@ const createStudentObj = (e) => {
 
 // Expels student when button is clicked
 const expelButton = (e) => {
-  targetType = e.target.type;
-  targetId = e.target.id;
+  let targetType = e.target.type;
+  let targetId = e.target.id;
   
   if (targetType === "button") {
     if (students.length > 1) {
@@ -97,11 +76,26 @@ const expelButton = (e) => {
   } 
 }
 
-
 // Triggers functions to execute when mouse events occur
 const buttonEvents = () => {
   document.querySelector('#sort').addEventListener('click', createForm);
   document.querySelector('#students').addEventListener('click', expelButton)
+}
+
+const createForm = (e) => {
+  let formId = e.target.id;
+
+  if (formId === "sort") {
+    document.querySelector("#form").innerHTML = `<form id="inputForm>
+                                                  <div class="mb-3">
+                                                    <label for="exampleStudentInput" class="form-label">New Student Name</label>
+                                                    <input type="text" class="form-control" id="studentName">
+                                                    <div class="form-text">Find your school!</div>
+                                                    <button id="create" type="button" class="btn btn-primary">Submit</button>
+                                                  </div>
+                                                </form>`
+  }
+  document.querySelector('#create').addEventListener('click', createStudentObj);
 }
 
 //Initializes all functions
