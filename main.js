@@ -29,7 +29,6 @@ const createForm = (e) => {
       </div>
     </form>`
     }
-  
 }
 
 // Prints student card
@@ -45,9 +44,7 @@ const studentMaker = (studentArr) => {
     </div>
   </div>`;
   });
-  
   printToDom("#students", cardString);
-
 }
 
 // Creates student object to be pushed into "student" array with input from form id
@@ -72,7 +69,7 @@ const createStudentObj = (e) => {
   students.push(obj);
   studentMaker(students);
   //                      ********** RESET NOT WORKING *********
-  document.querySelector("#studentName").reset();
+  // document.querySelector("#studentName").reset();
 }
 
 // Expels student when button is clicked
@@ -81,7 +78,11 @@ const expelButton = (e) => {
   targetId = e.target.id;
 
   if (targetType === "button") {
-    students.splice(targetId, 1);
+    if (students.length > 1) {
+      students.splice(targetId, 1);
+    } else if (students.length === 1) {
+      students.shift();
+    }
     studentMaker(students);
   } 
 }
