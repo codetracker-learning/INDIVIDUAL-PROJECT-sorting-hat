@@ -10,5 +10,4 @@
 * List of features: Jumbotron, form which only appears when you decide to sort, randomizer function in the submit button, class cards with house and house colors and your name, an expulsion button to splice entry from array and thus DOM card, Bootstrap
 * Screenshots of your project: 
 ![Sorting Hat Project](SortingHatProject.png)
-* List of contributors and links to their GH profiles
 * Link to Loom video walkthrough of your app: https://www.loom.com/share/1474021f62a146fe9d3c5d200ef2e1f9
