@@ -3,7 +3,7 @@
 // Create Array that will nest the names of students that we type in on the dom // 
 const studentsArr = [];
 
-
+const houseArray = ['Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw'];
 
 
 const printToDom = (divId, textToPrint) => {
@@ -19,6 +19,7 @@ function toggleHide() {
   } else {
     hidesBtn.style.display = "none";
   }
+  console.log("hello")
 }
 
 
@@ -40,10 +41,12 @@ const createStudentsCards = (taco) => {
 
 const handleButtonClick = (e) => {
   e.preventDefault();
-  const studentName = document.querySelector('#studentName').value;
+  const studentName = document.querySelector
+  ('#studentName').value;
+  const studentHouse = Math.floor(Math.random() * houseArray.length);
   const newStudent = {
     studentName,
-    house: 'Slytherin',
+    studentHouse,
   }
 
   studentsArr.push(newStudent);
@@ -53,12 +56,13 @@ const handleButtonClick = (e) => {
 
 const buttonEvents = () => {
   document.querySelector('#sortBtn').addEventListener('click', handleButtonClick);
-  document.querySelector('#toggle').addEventListener('click', handleButtonClick);
+  document.querySelector('#pleaseToggle').addEventListener('click', toggleHide);
 
 }
 
 const init = () => {
   buttonEvents();
+  // toggleHide();
 };
 
 
