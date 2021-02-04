@@ -1,67 +1,90 @@
+// Array of student houses
 const hat = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
+// Students Array
 const students = [];
 
+// function that prints the student card
 const printToDom = (divId, printText) => {
-  const selectedHat = document.querySelector(divId);
-  selectedHat.innerHTML = printText;
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = printText;
 };
 
-const cardForm = () => {
+// Gets the information of the student
+const cardInfo = (event) => {
+  event.preventDefault();
 
-  let form = `<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>`
-  printToDom('#form', form);
-  document.querySelector("#studentForm").addEventListener('click', formInfo);
+  const name = document.querySelector("#studentName").value;
+  const house = hat[Math.floor(Math.random() * hat.length)];
+  // sorts students by Ids
+  const studentIds = students.map(student => student.id).sort((a, b) => a - b);
+  const id = studentIds.length ? studentIds[(studentIds.length - 1)] + 1 : 1;
+
+  const studentObj = {
+    name,
+    house,
+    id,
+  };
+
+  students.push(studentObj);
+  cardBuilder(students);
+  document.querySelector("form").reset();
 };
 
-const studentCard = (hatArray) => {
+// Student information form
+const cardForm = (e) => {
+  let formId = e.target.id;
+
+  if (formId === "sort") {
+    document.querySelector("#form").innerHTML = `<form id="inputForm">
+    <div class="card-body">
+      <h5 class="card-title">New Student</h5>
+      <input type="text" class="form-control" id="studentName">
+      <div class="form-text">Find Your House</div>
+      <button id="createB" type="button" class="btn btn-primary">Submit</button>
+    </div>
+  </form>`
+  }
+  document.querySelector("#createB").addEventListener('click', cardInfo);
+};
+
+const cardBuilder = (studentArray) => {
   let domString = "";
 
-  hatArray.forEach((element) => {
+  studentArray.forEach((item, i) => {
     domString += `<div class="card mb-3" style="width: 18rem;" id=${i}>      
-      <div class="card-body">
-        <p class="card-text">${element.name}</p>
-        <p class="card-text">${element.house}</p>
-        <button type="button" class="btn btn-danger" id="${element.id}">Expel!</button>
+        <div class="card-body">
+          <h4 class="card-text">${item.name}</h4>
+          <p class="card-text">${item.house}</p>
+          <button type="button" class="btn btn-danger" id="${i}">Expel!</button>
+        </div>
       </div>`;
   })
-  printToDom('#hats', domString);
+  printToDom("#students", domString);
 };
 
-const buttonClick = (event) => {
-  const studentName = document.querySelector("#studentName").value;
-  const newStudent = {
-    studentName,
-    house: "slytherin",
-  };
-  students.push(newStudent);
-}
-
+// Deletes a student when button is clicked
 const deleteCard = (e) => {
   const targetType = (e.target.type);
   const targetId = (e.target.id);
 
   if (targetType === "button") {
     const studentIndex = students.findIndex((student) => student.id === targetId);
-    studentList.splice(studentIndex, 1);
+    students.splice(studentIndex, 1);
   }
-  studentCard();
+  cardBuilder(students);
 };
 
+// Event Listeners when delete button is clicked or student info is submitted
 const clickEvents = (event) => {
 
-  document.querySelector('#sort-hat').addEventListener('click', cardForm);
-  document.querySelector('#hats').addEventListener('click', buttonClick);
+  document.querySelector("#sort").addEventListener('click', cardForm);
+  document.querySelector("#students").addEventListener('click', deleteCard);
 };
 
+// Initializes functions when a button is clicked
 const initialize = () => {
   clickEvents();
-  // cardBuilder(studentList);
 };
+
 initialize();
