@@ -48,7 +48,6 @@ const expelStudent = (e) => {
 const manageButtonClick = (e) => {
   const buttonId = e.target.id;
 
-
 }
 
 const getFormInfo = (e) => {
@@ -57,9 +56,7 @@ const getFormInfo = (e) => {
   const name = document.querySelector("#student-name").value;
 
   const randomHouse =  Math.floor(Math.random() * studentHouse.length);
-  const house = studentHouse[randomHouse];
-
-  // const ID = how to use terneary operator 
+  const house = studentHouse[randomHouse];git st
   
   const obj = {
     name,
