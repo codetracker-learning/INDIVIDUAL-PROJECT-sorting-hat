@@ -1,5 +1,6 @@
 // console.log("Ravenclaw or GTFO")
 
+// Create Array that will nest the names of students that we type in on the dom // 
 const studentsArr = [];
 
 
@@ -10,14 +11,16 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
-function toggleHide () {
-const hidesBtn = document.querySelector("#toggle");
-if (hidesBtn.style.display === "none") {
-  hidesBtn.style.display = "block";
-} else {
-  hidesBtn.style.display = "none";
+
+function toggleHide() {
+  const hidesBtn = document.querySelector("#toggle");
+  if (hidesBtn.style.display === "none") {
+    hidesBtn.style.display = "block";
+  } else {
+    hidesBtn.style.display = "none";
   }
 }
+
 
 
 const createStudentsCards = (taco) => {
@@ -47,9 +50,11 @@ const handleButtonClick = (e) => {
   createStudentsCards();
 }
 
+
 const buttonEvents = () => {
   document.querySelector('#sortBtn').addEventListener('click', handleButtonClick);
-  
+  document.querySelector('#toggle').addEventListener('click', handleButtonClick);
+
 }
 
 const init = () => {
