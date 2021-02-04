@@ -1,4 +1,5 @@
 const students = [];
+let expelledArray = [];
 
 const showForm = () => {
   document.getElementById("formElement").style.display ="block";
@@ -28,14 +29,25 @@ const studentBuilder = (arr) => {
             </div>
           </div>`
   });
-  
     printToDom("#studentContainer", domString);
 }
+
+const expelStudent = (e) => {
+  const targetType = e.target.type;
+  const targetId = e.target.id;
+
+  if (targetType === "button") {
+    let deleteStudent = students.splice(targetId, 1);
+    expelledArray.push(...deleteStudent);
+  }
+  console.log()
+  studentBuilder(students)
+}
+
 
 const manageButtonClick = (e) => {
   const buttonId = e.target.id;
 
-// need to add here
 
 }
 
@@ -64,6 +76,8 @@ const getFormInfo = (e) => {
 const buttonEvent = () => {
   document.querySelector("form").addEventListener("click", manageButtonClick);
   document.querySelector("#sort").addEventListener("click", getFormInfo);
+
+  document.querySelector("#studentContainer").addEventListener("click", expelStudent);
   
 }
 
