@@ -33,6 +33,7 @@ const printToDom = (divId, textAsHtml) => {
 };
 
 // Create function to create DOM string and .innerHTML
+// for student cards
 const studentRosterBuilder = (arrayOfObjects) => {
   let domString = "";
 
@@ -48,7 +49,25 @@ const studentRosterBuilder = (arrayOfObjects) => {
     printToDom("#studentCards",domString);
 
   })
-}
+};
+
+// for expelled cards
+const expelledRosterBuilder = (arrayOfObjects) => {
+  let domString = "";
+
+  arrayOfObjects.forEach((object, i) => {
+    domString += `<div class="card my-2" style="width: 20rem;" id=${i}>
+                    <div class="card-body ${object.color} ${object.text}">
+                      <h.card-title>${object.name}</h.card-title>
+                      <p class="card-text">${object.house}</p>
+                      <button type="button" class="btn bg-danger bg-gradient border border-dark border-3 rounded-pill" id="${i}">Expulsion! </button>
+                    </div>
+                  </div>
+    `
+    printToDom("#expelledCards",domString);
+
+  })
+};
 // End print to DOM section
 
 // Start anonymous functions
@@ -107,20 +126,29 @@ const enrollStudent = (e) => {
   document.querySelector("form").reset();
 
 };
+
 // Create function to expel student and enlist them in trueBelievers instead
 const expelStudent = (e) => {
   const targetType = e.target.type;
   const targetId = e.target.id;
 
   if (targetType==="button") {
+    trueBelievers.push(students[targetId]);
     students.splice(targetId,1);
-  } 
+  }; 
 
   if (students.length != 0) {
     studentRosterBuilder(students);
   } else {
     printToDom("#studentCards","");
-  }
+  };
+
+  if (trueBelievers.length != 0) {
+    expelledRosterBuilder(trueBelievers);
+  } else {
+    printToDom("#expelledCards","");
+  };
+
 };
 // End anonymous functions
 

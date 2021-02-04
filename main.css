@@ -22,8 +22,13 @@
 
 body {
   background-color: antiquewhite;
-}
+};
 
 #sortingDiv {
   display: none;
-}
+};
+
+.card-sets{
+  display: flex;
+  justify-content: center;
+};

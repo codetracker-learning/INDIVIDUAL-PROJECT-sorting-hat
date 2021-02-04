@@ -20,19 +20,24 @@
     <!-- Bootstrap Components -->
     <!-- Jumbotron -->
     <div class="p-5 bg-light text-center">
-      <h1>- Welcome to Hawthornes 
-        - <br>
-        A Subsidiary of Hogwarts!</h1>
+      <h1>
+        - Welcome to Hawthornes - <br />
+        A Subsidiary of Hogwarts!
+      </h1>
       <p>
-        It's not nearly as exciting, but You made it! <br>
-        Now can you have your cake and eat it too? <br>
-        Make sure to do all of your homework, eat your vegetables, and drink plenty of water. <br>
-        Larry Parker of Hawthornes did it, and You can too! <br>
-        Oh yeah. Try not to get expelled, Ok? Unless you want to join that Marvel Universe. Ugh!
+        It's not nearly as exciting, but You made it! <br />
+        Now can you have your cake and eat it too? <br />
+        Make sure to do all of your homework, eat your vegetables, and drink
+        plenty of water. <br />
+        Larry Parker of Hawthornes did it, and You can too! <br />
+        Oh yeah. Try not to get expelled, Ok? Unless you want to join that
+        Marvel Universe. Ugh!
       </p>
       <hr />
       <p>Now sit your butt down and put on this hat. :)</p>
-      <button onclick="showForm()" type="button" class="btn btn-primary">Let's Get Shtarted</button>
+      <button onclick="showForm()" type="button" class="btn btn-primary">
+        Let's Get Shtarted
+      </button>
     </div>
     <!-- Form -->
     <div id="sortingDiv" class="g-3 align-items-center text-center">
@@ -40,15 +45,28 @@
       <form>
         <div class="mt-3">
           <label for="name" class="form-label">Student Name:</label>
-          <input type="text" class="form-control mr-3" id="name" required oninvalid="this.setCustomValidity('Dauwg, we need a name!')" oninput="setCustomValidity('')"/>
+          <input
+            type="text"
+            class="form-control mr-3"
+            id="name"
+            required
+            oninvalid="this.setCustomValidity('Dauwg, we need a name!')"
+            oninput="setCustomValidity('')"
+          />
         </div>
 
-          <button type="submit" class="btn btn-secondary">Sort...</button>
+        <button type="submit" class="btn btn-secondary">Sort...</button>
       </form>
     </div>
-    <!-- Student Cards -->
-    <div id="studentCards"></div>
-    <!-- Expelled Cards [PLACEHOLDER] -->
+    <!-- Container for Card Groups -->
+    <div class="card-sets">
+      <!-- Student Cards -->
+      <p>Students</p>
+      <div id="studentCards"></div>
+      <!-- Expelled Cards -->
+      <p>Expelled</p>
+      <div id="expelledCards"></div>
+    </div>
 
     <!-- Bootstrap -->
     <script
