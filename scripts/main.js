@@ -7,8 +7,9 @@ const students = [];
 // Expel Array (deleted students)
 const expel = [];
 
-// function that prints the student card
+// Function that prints the student card
 const printToDom = (divId, printText) => {
+  // Selects the first parentChild relationship for the <div id=""> element
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = printText;
 };
@@ -19,10 +20,10 @@ const cardInfo = (event) => {
 
   const name = document.querySelector("#studentName").value;
   const house = hat[Math.floor(Math.random() * hat.length)];
-  // sorts students by Ids using the .map method
+  // Sorts students by Ids using the .map method
   const studentIds = students.map(student => student.id).sort((a, b) => a - b);
   const id = studentIds.length ? studentIds[(studentIds.length - 1)] + 1 : 1;
-  // the student object key.value form
+  // The student object key.value form
   const studentObj = {
     name,
     house,
@@ -30,6 +31,7 @@ const cardInfo = (event) => {
   };
   // Pushes the student object into the students array
   students.push(studentObj);
+  // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
   document.querySelector("form").reset();
 };
@@ -37,7 +39,7 @@ const cardInfo = (event) => {
 // Student information form function and student input name is submitted when the submit button is clicked
 const cardForm = (e) => {
   let formId = e.target.id;
-  // the student form is rendered when the Sort button is clicked
+  // The student HTML form is rendered when the Sort button is clicked
   if (formId === "sort") {
     document.querySelector("#form").innerHTML = `<form id="inputForm">
     <div class="card-body">
@@ -48,23 +50,24 @@ const cardForm = (e) => {
     </div>
   </form>`
   }
+  // Listens for the submit button when clicked and triggers the cardInfo function to run
   document.querySelector("#createB").addEventListener('click', cardInfo);
 };
 
 // Prints the array of students to the DOM
 const cardBuilder = (studentArray) => {
   let domString = "";
-
+  // .forEach array method that reiterates through the students array 
   studentArray.forEach((item, i) => {
     domString += `<div class="card mb-3" style="width: 18rem;" id=${i}>      
         <div class="card-body">
           <h4 class="card-text">Name: ${item.name}</h4>
           <p class="card-text">House: ${item.house}</p>
-          <button type="button" class="btn btn-danger" id="${i}">Expel!</button>
+          <button type="button" class="btn btn-danger" id="${i}">Expel!</button> 
         </div>
       </div>`;
   })
-  // invokes the printToDom function and renders the student to the Dom
+  // Invokes the printToDom function and renders the student to the Dom
   printToDom("#students", domString);
 };
 
@@ -76,8 +79,10 @@ const deleteCard = (e) => {
   if (targetType === "button") {
     const deleteStudent = students.findIndex((student) => student.id === targetId);
     students.splice(deleteStudent, 1);
-    expel.push(...deleteStudent);
+    // Pushes the deleted student into the expel array
+    // expel.push(...deleteStudent);
   }
+  // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
 };
 
@@ -90,7 +95,8 @@ const clickEvents = (event) => {
 
 // Initializes functions when a button is clicked
 const initialize = () => {
+  // Invokes the clickEvents function
   clickEvents();
 };
-// invokes the initialize function
+// Invokes the initialize function
 initialize();
