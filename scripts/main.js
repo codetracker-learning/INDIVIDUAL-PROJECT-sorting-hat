@@ -37,7 +37,7 @@ const createStudentObj = (e) => {
   } else if (obj.school === "Ravenclaw") {
     obj.style = 'bg-secondary bg-gradient';
   } else if (obj.school === "Slytherin") {
-    obj.style = 'bg-warning bg-primary';
+    obj.style = 'bg-info bg-primary';
   }
 
   students.push(obj); 
