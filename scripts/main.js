@@ -1,8 +1,11 @@
 // Array of student houses
-const hat = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+const hat = ["GRYFFINDOR", "HUFFLEPUFF", "RAVENCLAW", "SLYTHERIN"];
 
 // Students Array
 const students = [];
+
+// Expel Array (deleted students)
+const expel = [];
 
 // function that prints the student card
 const printToDom = (divId, printText) => {
@@ -16,25 +19,25 @@ const cardInfo = (event) => {
 
   const name = document.querySelector("#studentName").value;
   const house = hat[Math.floor(Math.random() * hat.length)];
-  // sorts students by Ids
+  // sorts students by Ids using the .map method
   const studentIds = students.map(student => student.id).sort((a, b) => a - b);
   const id = studentIds.length ? studentIds[(studentIds.length - 1)] + 1 : 1;
-
+  // the student object key.value form
   const studentObj = {
     name,
     house,
     id,
   };
-
+  // Pushes the student object into the students array
   students.push(studentObj);
   cardBuilder(students);
   document.querySelector("form").reset();
 };
 
-// Student information form
+// Student information form function and student input name is submitted when the submit button is clicked
 const cardForm = (e) => {
   let formId = e.target.id;
-
+  // the student form is rendered when the Sort button is clicked
   if (formId === "sort") {
     document.querySelector("#form").innerHTML = `<form id="inputForm">
     <div class="card-body">
@@ -48,18 +51,20 @@ const cardForm = (e) => {
   document.querySelector("#createB").addEventListener('click', cardInfo);
 };
 
+// Prints the array of students to the DOM
 const cardBuilder = (studentArray) => {
   let domString = "";
 
   studentArray.forEach((item, i) => {
     domString += `<div class="card mb-3" style="width: 18rem;" id=${i}>      
         <div class="card-body">
-          <h4 class="card-text">${item.name}</h4>
-          <p class="card-text">${item.house}</p>
+          <h4 class="card-text">Name: ${item.name}</h4>
+          <p class="card-text">House: ${item.house}</p>
           <button type="button" class="btn btn-danger" id="${i}">Expel!</button>
         </div>
       </div>`;
   })
+  // invokes the printToDom function and renders the student to the Dom
   printToDom("#students", domString);
 };
 
@@ -67,17 +72,18 @@ const cardBuilder = (studentArray) => {
 const deleteCard = (e) => {
   const targetType = (e.target.type);
   const targetId = (e.target.id);
-
+  // if statement if the delete button is clicked it will find the student id
   if (targetType === "button") {
-    const studentIndex = students.findIndex((student) => student.id === targetId);
-    students.splice(studentIndex, 1);
+    const deleteStudent = students.findIndex((student) => student.id === targetId);
+    students.splice(deleteStudent, 1);
+    expel.push(...deleteStudent);
   }
   cardBuilder(students);
 };
 
-// Event Listeners when delete button is clicked or student info is submitted
+// Event Listeners when Delete || Sort button is clicked
 const clickEvents = (event) => {
-
+  // addEventListeners for the Sort && Delete buttons
   document.querySelector("#sort").addEventListener('click', cardForm);
   document.querySelector("#students").addEventListener('click', deleteCard);
 };
@@ -86,5 +92,5 @@ const clickEvents = (event) => {
 const initialize = () => {
   clickEvents();
 };
-
+// invokes the initialize function
 initialize();
