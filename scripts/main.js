@@ -65,16 +65,17 @@ const buttonEvents = () => {
   document.querySelector('#students').addEventListener('click', expelButton)
 }
 
+// Prints form to HTML when "Sort!" button is clicked
 const createForm = (e) => {
   let formId = e.target.id;
 
   if (formId === "sort") {
-    document.querySelector("#form").innerHTML = `<form id="inputForm>
+    document.querySelector("#form").innerHTML = `<form id="inputForm" class="mt-2">
                                                   <div class="mb-3">
                                                     <label for="exampleStudentInput" class="form-label">New Student Name</label>
                                                     <input type="text" class="form-control" id="studentName">
                                                     <div class="form-text">Find your school!</div>
-                                                    <button id="create" type="button" class="btn btn-primary">Submit</button>
+                                                    <button id="create" type="button" class="btn btn-primary btn-lg mt-2">Submit</button>
                                                   </div>
                                                 </form>`
   }
