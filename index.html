@@ -22,41 +22,41 @@
                 <a class="btn btn-primary btn-lg" href="#" role="button" id="btnStartSorting">Let's Start Sorting</a>
             </div>
         </div>
-        <div class="enter-first-years-name ">
-            <form id="studentForm">
+        <div class="enter-first-years-name">
+            <form id="studentForm" onsubmit="return CheckForBlankName"></form>
+        </div>
+    </div>
 
-                <!-- <div class="row mt-3 text-center">
-                    <legend>Enter First Year's Name</legend>
+    <div class="row">
+        <div class="col">
 
-                    <div class="col-auto">
-                        <label for="lblStudent" class="col-form-label">Student</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="text" id="new-student-name" class="form-control">
-                    </div>
-                    <div class="col-auto">
-                        <a type="submit" class="btn btn-primary btn-lg">Sort</a>
-                    </div>
-                </div> -->
 
-            </form>
+            <div class="names-of-first-years container-xl mt-3 text-center ">
+                <legend>First Year's</legend>
+                <div id="sortedNames" class="d-flex flex-wrap justify-content-around"></div>
+            </div>
+
+
+        </div>
+        <div class="col">
+
+
+            <div class="names-voldemort container-xl mt-3 text-center ">
+                <legend>He Who Must Not Be Named's Army</legend>
+                <p>No Death Eaters...yet!</p>
+                <div id="expelledNames" class="d-flex flex-wrap justify-content-around"></div>
+            </div>
+
+
+
         </div>
 
 
-
     </div>
 
-    <div class="names-of-first-years ">
-
-        <legend>First Year's</legend>
 
 
-        <div id="sortedNames" class="d-flex flex-wrap justify-content-around"></div>
 
-    </div>
-
-    <!-- <div id="sortedNames" class="d-flex flex-wrap justify-content-around">
-        </div> -->
 
 
 

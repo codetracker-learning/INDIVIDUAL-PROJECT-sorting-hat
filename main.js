@@ -1,6 +1,3 @@
-console.log('Connected Sorting Hats');
-debugger;
-
 const houses = [{
         houseName: 'Gryffindor',
         houseColors: ['#7F0909', '#FFC500'],
@@ -15,19 +12,16 @@ const houses = [{
     },
     {
         houseName: 'Slytherin',
-        houseColors: ['#0D6217', 'AAAAAA'],
-    }
+        houseColors: ['#0D6217', '#AAAAAA'],
+    },
+    {
+        houseName: 'Voldemort',
+        houseColors: ['#4D5C3C', '#294234'],
+    },
 ];
 
-// const StudentArray = [{
-//     studentID: 0,
-//     studentName: 'J',
-//     houseName: 'I',
-// }];
-
-
-const StudentArray = [];
-
+const studentArray = [];
+const lordVodemortArmy = [];
 let studentIDCount = 1000;
 
 // Print output to DOM = Document Object Model
@@ -49,107 +43,111 @@ const PrintStudentForm = () => {
                                     <label for="lblStudent" class="col-form-label">Student</label>
                                 </div>
                                 <div class="col-auto">
-                                    <input type="text" id="new-student-name" class="form-control">
+                                    <input type="text" id="new-student-name" class="form-control" placeholder="Please enter name" required>
                                 </div>
-                                <div class="col-auto">
-                                    <a type="submit" class="btn btn-primary btn-lg" id="btnSort">Sort</a>
+                                <div class="col-auto alert" >
+                                    <button type="submit" class="btn btn-primary btn-lg" id="btnSort">Sort</button>
                                 </div>
                             </div> `;
 
     PrintToDom('#studentForm', studentForm);
 }
 
-const BuildStudentCard = (StudentsArr) => {
+const BuildStudentCard = (studentsArr, divID) => {
     let domString = '';
-    let leftCardColor = '';
-    let rightCardColor = '';
-    // StudentsArr.forEach(item => {
 
-
-    StudentsArr.forEach((item, i) => {
-
-        switch (item.houseName) {
-            case houses[0].houseName:
-                leftCardColor = houses[0].houseColors[0];
-                rightCardColor = houses[0].houseColors[1];
-                break;
-            case houses[1].houseName:
-                leftCardColor = houses[1].houseColors[0];
-                rightCardColor = houses[1].houseColors[1];
-                break;
-            case houses[2].houseName:
-                leftCardColor = houses[2].houseColors[0];
-                rightCardColor = houses[2].houseColors[1];
-                break;
-            case houses[3].houseName:
-                leftCardColor = houses[3].houseColors[0];
-                rightCardColor = houses[3].houseColors[1];
-                break;
-        }
-
-        domString += `<div class="card my-2" style="width: 18rem;" id=${item.studentID}  >
-                       
-                        <div class="card-body"   >
-                          <p class="card-text">${item.studentName}</p>
-                          <p class="card-text">${item.houseName}</p>
-                          <button type="button" class="btn btn-danger" id="${item.studentID}">Expel</button>
-                        </div>
+    studentsArr.forEach((item) => {
+        domString += `<div class="card my-2" style="width: 20rem;" id=${item.studentID}> 
+                          <div class="row g-0">
+                            <div class="col-md-2" style="background-color:${item.houseColors[0]};"  >
+                            </div>
+                            <div class="col-md-2" style="background-color:${item.houseColors[1]};" >
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title">${item.studentName}</h5>
+                                <p class="card-text">${item.houseName}</p>
+                                <button type="button" class="btn btn-danger" id="${item.studentID}">Expel</button>
+                              </div>
+                            </div>
+                          </div>
                       </div>`;
     })
 
-    PrintToDom('#sortedNames', domString);
-
+    PrintToDom(divID, domString);
 }
 
 const GetFirstYearsInfo = (e) => {
     e.preventDefault();
     const studentID = studentIDCount++;
     const studentName = document.querySelector('#new-student-name').value;
-    const houseName = houses[Math.floor(Math.random() * houses.length)].houseName;
+    const houseName = houses[Math.floor(Math.random() * (houses.length - 1))].houseName;
+    const houseColors = [];
+
+    switch (houseName) {
+        case houses[0].houseName:
+            houseColors.push(houses[0].houseColors[0]);
+            houseColors.push(houses[0].houseColors[1]);
+            break;
+        case houses[1].houseName:
+            houseColors.push(houses[1].houseColors[0]);
+            houseColors.push(houses[1].houseColors[1]);
+            break;
+        case houses[2].houseName:
+            houseColors.push(houses[2].houseColors[0]);
+            houseColors.push(houses[2].houseColors[1]);
+            break;
+        case houses[3].houseName:
+            houseColors.push(houses[3].houseColors[0]);
+            houseColors.push(houses[3].houseColors[1]);
+            break;
+        default:
+            houseColors.push('#DE3163');
+            houseColors.push('#CCCCFF');
+            break;
+    }
+
     const obj = {
         studentID,
         studentName,
         houseName,
+        houseColors,
     }
-    StudentArray.push(obj);
-    BuildStudentCard(StudentArray);
 
+    studentArray.push(obj);
+    BuildStudentCard(studentArray, '#sortedNames');
     ClearStudentName();
-    document.querySelector('form').reset();
 
 }
-
-const HandleButtonClick = (e) => {
-    const buttonID = e.target.id;
-
-}
-
 
 const expelStudent = (e) => {
 
     const tartgetType = e.target.type;
-    const targetID = e.target.id;
     const targetIDNum = parseInt(e.target.id, 10);
     let expelStudentID = 0;
 
+    //JID OJO this is targetting the item selected byt the ID 
     if (tartgetType === 'button') {
-        expelStudentID = StudentArray.findIndex((student) => student.studentID === targetIDNum);
-        StudentArray.splice(expelStudentID, 1);
+        expelStudentID = studentArray.findIndex((student) => student.studentID === targetIDNum);
+        let tempStudent = studentArray.splice(expelStudentID, 1);
+        lordVodemortArmy.push(...tempStudent);
+        lordVodemortArmy[lordVodemortArmy.length - 1].houseName = houses[4].houseName;
+        lordVodemortArmy[lordVodemortArmy.length - 1].houseColors[0] = houses[4].houseColors[0];
+        lordVodemortArmy[lordVodemortArmy.length - 1].houseColors[1] = houses[4].houseColors[1];
+        console.log(lordVodemortArmy[lordVodemortArmy.length - 1]);
     }
-    BuildStudentCard(StudentArray);
-
+    BuildStudentCard(studentArray, '#sortedNames');
+    BuildStudentCard(lordVodemortArmy, '#expelledNames');
 }
 
 const ButtonEvents = () => {
     document.querySelector('#btnStartSorting').addEventListener('click', PrintStudentForm);
     document.querySelector('#sortedNames').addEventListener('click', expelStudent);
     document.querySelector('form').addEventListener('submit', GetFirstYearsInfo);
-    // document.querySelector('form').addEventListener('submit', GetFirstYearsInfo);
 }
 
 const init = () => {
     ButtonEvents();
-    // BuildStudentCard(StudentArray);
 }
 
 init();

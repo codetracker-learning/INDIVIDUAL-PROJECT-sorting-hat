@@ -4,38 +4,41 @@ body {
     background-color: beige;
 }
 
-.card {
-    /* max-width: 50px;
-    max-height: 50px; */
+
+/* .card {
     height: 300px;
     width: 200px;
     background-size: cover;
     background-position: center;
+    border-style: solid;
+} */
+
+.names-of-first-years {
+    height: 400px;
+    width: 400px;
 }
 
+.enter-first-years-name {
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
-/* .leftCardC {
-    background-color: '#7F0909';
-    height: 200px;
-    min-width: 200px;
-    background-size: cover;
-    background-position: center;
-} */
+.leftSide,
+.rightSide {
+    height: 100hv;
+    width: 100%;
+}
 
+.leftSide {
+    border-radius: 10px;
+    border-style: solid;
+}
 
-/* 
-.centerCardC {
-    display: flex;
-    flex-wrap: wrap;
-    height: 200px;
-    min-width: 200px;
-} */
-
-
-/* .rightCardC {
-    background-color: '#FFC500';
-    height: 200px;
-} */
+.rightSide {
+    border-radius: 10px;
+    border-style: solid;
+}
 
 
 /* END of Main.css */
