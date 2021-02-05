@@ -19,13 +19,13 @@
       <hr class="my-4">
       <p>Locomotor lumos serpensortia rictusempra immobilus aparecium imperio. Stupefy finite mobilicorpus.</p>
       <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button" onclick="toggleHide()">Let's get to sorting!</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="pleaseToggle">Let's get to sorting!</a>
       </p>
     </div>
   </div>
 
 
-  <form id="toggle">
+  <form id="toggle" style="display: none;">
     <div class="mb-3">
       <label for="studentName" class="form-label">Enter First Year's Name!</label>
       <input type="text" class="form-control" placeholder="name" id="studentName">
@@ -33,9 +33,9 @@
     </div>
   </form>
 
-  <div id ="studentCards"></div>
+  <div id="studentCards"></div>
 
- 
+
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
