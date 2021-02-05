@@ -1,4 +1,21 @@
 body {
-  background-color: burlywood;
+  background-color: #9682c4
 }
 
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.studentContainer {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.card {
+flex: 1 - 48%;
+margin: 1%;
+text-align: center;
+border: 1px solid black;
+}
