@@ -27,9 +27,3 @@ body {
 #sortingDiv {
   display: none;
 };
-
-.card-sets{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-};

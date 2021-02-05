@@ -1,3 +1,4 @@
+console.log(document.querySelector("#sortingDiv").attributes);
 // Start arrays section
 const students = [
   // { 
@@ -46,7 +47,7 @@ const studentRosterBuilder = (arrayOfObjects) => {
                     </div>
                   </div>
     `
-    printToDom("#studentCards",domString);
+    printToDom("#studentCards","Students" + domString);
 
   })
 };
@@ -62,10 +63,11 @@ const expelledRosterBuilder = (arrayOfObjects) => {
                       <p class="card-text">It's MAHVELL, BABY!!!</p>
                       <img src="Marvel.jpg" class="img-fluid" alt="pic of Marvel superheros">
                       <p class="card-text">${object.name} became a True Believer and is now a fan of the Marvel Universe instead :)</p>
+                      <p class="card-text">Not even Voldemort wanted them.</p>
                     </div>
                   </div>
     `
-    printToDom("#expelledCards",domString);
+    printToDom("#expelledCards","Expelled!" + domString);
 
   })
 };
