@@ -5,4 +5,40 @@ body {
 }
 
 
+/* .card {
+    height: 300px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    border-style: solid;
+} */
+
+.names-of-first-years {
+    height: 400px;
+    width: 400px;
+}
+
+.enter-first-years-name {
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.leftSide,
+.rightSide {
+    height: 100hv;
+    width: 100%;
+}
+
+.leftSide {
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.rightSide {
+    border-radius: 10px;
+    border-style: solid;
+}
+
+
 /* END of Main.css */
