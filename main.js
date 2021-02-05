@@ -57,10 +57,11 @@ const expelledRosterBuilder = (arrayOfObjects) => {
 
   arrayOfObjects.forEach((object, i) => {
     domString += `<div class="card my-2" style="width: 20rem;" id=${i}>
-                    <div class="card-body ${object.color} ${object.text}">
+                    <div class="card-body">
                       <h.card-title>${object.name}</h.card-title>
-                      <p class="card-text">${object.house}</p>
-                      <button type="button" class="btn bg-danger bg-gradient border border-dark border-3 rounded-pill" id="${i}">Expulsion! </button>
+                      <p class="card-text">It's MAHVELL, BABY!!!</p>
+                      <img src="Marvel.jpg" class="img-fluid" alt="pic of Marvel superheros">
+                      <p class="card-text">${object.name} became a True Believer and is now a fan of the Marvel Universe instead :)</p>
                     </div>
                   </div>
     `
@@ -136,13 +137,14 @@ const expelStudent = (e) => {
     trueBelievers.push(students[targetId]);
     students.splice(targetId,1);
   }; 
-
+  // Print student cards
   if (students.length != 0) {
     studentRosterBuilder(students);
   } else {
     printToDom("#studentCards","");
   };
 
+  // Print expelled cards
   if (trueBelievers.length != 0) {
     expelledRosterBuilder(trueBelievers);
   } else {

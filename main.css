@@ -30,5 +30,6 @@ body {
 
 .card-sets{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 };
