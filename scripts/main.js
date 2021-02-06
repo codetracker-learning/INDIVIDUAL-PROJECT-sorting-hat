@@ -88,19 +88,7 @@ const deleteCard = (e) => {
   cardBuilder(students);
 };
 
-// expel student array
-// const expelStudent = (expelArray) => {
-//   let expelDom = "";
-//   expelArray.forEach((item, i) => {
-//     secretDom +=
-//       `<div class="card m-1" style="width: 18rem;" id=${i}>
-//         <div class="card-body text-center">
-//           <p class="h5 card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
-//         </div>
-//       </div>`
-//   })
-//   printToDom("#expelledStudent", expelDom);
-// };
+
 
 // Event Listeners when Delete || Sort button is clicked
 const clickEvents = (event) => {
