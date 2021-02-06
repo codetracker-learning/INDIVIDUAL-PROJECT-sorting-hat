@@ -50,7 +50,7 @@ const cardForm = (e) => {
     </div>
   </form>`
   }
-  // Listens for the submit button when clicked and triggers the cardInfo function to run
+  // Listens for the submit button when clicked and triggers the cardInfo function
   document.querySelector("#createB").addEventListener('click', cardInfo);
 };
 
