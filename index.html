@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <div class="completeTron" 
   <div class="jumbotron jumbotron-fluid">
     <div class="jumbotron">
       <h1 class="display-4">It's Sorting Time!</h1>
@@ -19,21 +20,24 @@
       <hr class="my-4">
       <p>Locomotor lumos serpensortia rictusempra immobilus aparecium imperio. Stupefy finite mobilicorpus.</p>
       <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button" id="pleaseToggle">Let's get to sorting!</a>
+        <a class="btn btn-primary btn-lg rounded-lg btn-outline-dark form-text alert-info" href="#" role="button" id="pleaseToggle">Let's get
+          to sorting!</a>
       </p>
     </div>
   </div>
-
+  </div>
 
   <form id="toggle" style="display: none;">
-    <div class="mb-3">
-      <label for="studentName" class="form-label">Enter First Year's Name!</label>
-      <input type="text" class="form-control" placeholder="name" id="studentName">
-      <button type="submit" class="btn btn-primary" id="sortBtn">Sort!</button>
+    <div class="mb-1" text>
+      <label for="studentName" class="btn btn-primary btn-outline-info rounded-lg btn-outline-dark form-text alert-info" >Enter First Year's Name!</label>
+      <input type="text" class="form-control text-center align-content-around btn btn-outline-light" cardstyle="width: 10rem" placeholder="Enter Name" id="studentName" required>
+      <button type="submit" class="btn btn-primary btn-sm rounded-sm btn-outline-dark form-text alert-info" id="sortBtn">Sort!</button>
     </div>
   </form>
 
-  <div id="studentCards"></div>
+  <div id="requiredAlert"></div>
+  <div class="display flex flex-row" id="studentCards"></div>
+  
 
 
 

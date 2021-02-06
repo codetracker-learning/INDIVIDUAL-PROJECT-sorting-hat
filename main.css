@@ -1,3 +1,24 @@
 body {
-  background-color: whitesmoke;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 23px;
+  background-color: rgb(73, 73, 73);
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+
 }
+
+.jumbotron{
+  background-color: rgb(47, 67, 109);
+  padding-top: 20px;
+  padding-bottom: 15px;
+  color: mintcream;
+  border: solid darkgoldenrod 2px;
+}
+
+/* .formsss {
+  display: flex;
+  justify-content: space-evenly;
+} */
