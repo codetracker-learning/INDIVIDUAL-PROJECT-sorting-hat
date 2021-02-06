@@ -79,12 +79,28 @@ const deleteCard = (e) => {
   if (targetType === "button") {
     const deleteStudent = students.findIndex((student) => student.id === targetId);
     students.splice(deleteStudent, 1);
+
     // Pushes the deleted student into the expel array
-    // expel.push(...deleteStudent);
+    expel.push(...students.splice(targetId, 1));
   }
   // Invokes the cardBuilder function with the (students) array as a parameter 
+  // expelStudent(expel);
   cardBuilder(students);
 };
+
+// expel student array
+// const expelStudent = (expelArray) => {
+//   let expelDom = "";
+//   expelArray.forEach((item, i) => {
+//     secretDom +=
+//       `<div class="card m-1" style="width: 18rem;" id=${i}>
+//         <div class="card-body text-center">
+//           <p class="h5 card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
+//         </div>
+//       </div>`
+//   })
+//   printToDom("#expelledStudent", expelDom);
+// };
 
 // Event Listeners when Delete || Sort button is clicked
 const clickEvents = (event) => {
