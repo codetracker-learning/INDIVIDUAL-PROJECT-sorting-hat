@@ -23,6 +23,10 @@ const houses = [{
 const studentArray = [];
 const lordVodemortArmy = [];
 let studentIDCount = 1000;
+const sortedNamesID = '#sortedNames';
+const expelledNamesID = '#expelledNames';
+let sortStudentsBy = '';
+
 
 // Print output to DOM = Document Object Model
 // divID = targeted ID to print to 
@@ -45,33 +49,59 @@ const PrintStudentForm = () => {
                                 <div class="col-auto">
                                     <input type="text" id="new-student-name" class="form-control" placeholder="Please enter name" required>
                                 </div>
-                                <div class="col-auto alert" >
-                                    <button type="submit" class="btn btn-primary btn-lg" id="btnSort">Sort</button>
+                                <div class="col-auto" >
+                                    <button type="submit" class="btn btn-primary btn-lg" id="btnSort">Sort Student into a House</button>
                                 </div>
                             </div> `;
-
     PrintToDom('#studentForm', studentForm);
+}
+
+const FirstYearStudent = (student) => {
+
+    return `<div class="card my-2" style="width: 20rem;" id=${student.studentID}> 
+            <div class="row g-0">
+              <div class="col-md-2" style="background-color:${student.houseColors[0]};"  >
+              </div>
+              <div class="col-md-2" style="background-color:${student.houseColors[1]};" >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${student.studentName}</h5>
+                  <p class="card-text">${student.houseName}</p>
+                  <button type="button" class="btn btn-danger" id="${student.studentID}">Expel</button>
+                </div>
+              </div>
+            </div>
+        </div> `;
+}
+
+const VoldemortStudent = (student) => {
+
+    return `<div class="card my-2" style="width: 20rem;" id=${student.studentID}> 
+            <div class="row g-0">
+              <div class="col-md-2" style="background-color:${student.houseColors[0]};"  >
+              </div>
+              <div class="col-md-2" style="background-color:${student.houseColors[1]};" >
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p class="card-text">Sadly, ${student.studentName} went over to the dark side!</p>
+                </div>
+              </div>
+            </div>
+        </div> `;
 }
 
 const BuildStudentCard = (studentsArr, divID) => {
     let domString = '';
 
-    studentsArr.forEach((item) => {
-        domString += `<div class="card my-2" style="width: 20rem;" id=${item.studentID}> 
-                          <div class="row g-0">
-                            <div class="col-md-2" style="background-color:${item.houseColors[0]};"  >
-                            </div>
-                            <div class="col-md-2" style="background-color:${item.houseColors[1]};" >
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body">
-                                <h5 class="card-title">${item.studentName}</h5>
-                                <p class="card-text">${item.houseName}</p>
-                                <button type="button" class="btn btn-danger" id="${item.studentID}">Expel</button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>`;
+    studentsArr.forEach((student) => {
+
+        if (divID === sortedNamesID) {
+            domString += `${FirstYearStudent(student)}`;
+        } else if (divID === expelledNamesID) {
+            domString += `${VoldemortStudent(student)}`;
+        }
     })
 
     PrintToDom(divID, domString);
@@ -79,49 +109,53 @@ const BuildStudentCard = (studentsArr, divID) => {
 
 const GetFirstYearsInfo = (e) => {
     e.preventDefault();
-    const studentID = studentIDCount++;
-    const studentName = document.querySelector('#new-student-name').value;
+    const studentName = document.querySelector('#new-student-name').value.trim();
+    let studentID = 0;
     const houseName = houses[Math.floor(Math.random() * (houses.length - 1))].houseName;
     const houseColors = [];
 
-    switch (houseName) {
-        case houses[0].houseName:
-            houseColors.push(houses[0].houseColors[0]);
-            houseColors.push(houses[0].houseColors[1]);
-            break;
-        case houses[1].houseName:
-            houseColors.push(houses[1].houseColors[0]);
-            houseColors.push(houses[1].houseColors[1]);
-            break;
-        case houses[2].houseName:
-            houseColors.push(houses[2].houseColors[0]);
-            houseColors.push(houses[2].houseColors[1]);
-            break;
-        case houses[3].houseName:
-            houseColors.push(houses[3].houseColors[0]);
-            houseColors.push(houses[3].houseColors[1]);
-            break;
-        default:
-            houseColors.push('#DE3163');
-            houseColors.push('#CCCCFF');
-            break;
+    if (studentName !== "") {
+        studentID = studentIDCount++;
+
+        switch (houseName) {
+            case houses[0].houseName:
+                houseColors.push(houses[0].houseColors[0]);
+                houseColors.push(houses[0].houseColors[1]);
+                break;
+            case houses[1].houseName:
+                houseColors.push(houses[1].houseColors[0]);
+                houseColors.push(houses[1].houseColors[1]);
+                break;
+            case houses[2].houseName:
+                houseColors.push(houses[2].houseColors[0]);
+                houseColors.push(houses[2].houseColors[1]);
+                break;
+            case houses[3].houseName:
+                houseColors.push(houses[3].houseColors[0]);
+                houseColors.push(houses[3].houseColors[1]);
+                break;
+            default:
+                houseColors.push('#DE3163');
+                houseColors.push('#CCCCFF');
+                break;
+        }
+
+        const obj = {
+            studentID,
+            studentName,
+            houseName,
+            houseColors,
+        }
+
+        studentArray.push(obj);
     }
 
-    const obj = {
-        studentID,
-        studentName,
-        houseName,
-        houseColors,
-    }
-
-    studentArray.push(obj);
-    BuildStudentCard(studentArray, '#sortedNames');
+    FilterStudentsBy();
+    BuildStudentCard(studentArray, sortedNamesID);
     ClearStudentName();
-
 }
 
 const expelStudent = (e) => {
-
     const tartgetType = e.target.type;
     const targetIDNum = parseInt(e.target.id, 10);
     let expelStudentID = 0;
@@ -134,16 +168,47 @@ const expelStudent = (e) => {
         lordVodemortArmy[lordVodemortArmy.length - 1].houseName = houses[4].houseName;
         lordVodemortArmy[lordVodemortArmy.length - 1].houseColors[0] = houses[4].houseColors[0];
         lordVodemortArmy[lordVodemortArmy.length - 1].houseColors[1] = houses[4].houseColors[1];
-        console.log(lordVodemortArmy[lordVodemortArmy.length - 1]);
     }
-    BuildStudentCard(studentArray, '#sortedNames');
-    BuildStudentCard(lordVodemortArmy, '#expelledNames');
+
+    if (lordVodemortArmy.length > 0) {
+        PrintToDom('#no-death-eaters', "");
+    }
+
+    BuildStudentCard(studentArray, sortedNamesID);
+    BuildStudentCard(lordVodemortArmy, expelledNamesID);
+}
+
+const FilterStudentsBy = () => {
+    let sortStudentBy = document.querySelector('#studentSortedBy').value;
+    let studentAscendDecend = document.querySelector('#studentAscendDecend').value;
+
+    if (sortStudentBy === "srtByID") {
+        if (studentAscendDecend === "srtAscending") {
+            studentArray.sort((a, b) => (a.studentID < b.studentID ? -1 : 1));
+        } else {
+            studentArray.sort((a, b) => (a.studentID > b.studentID ? -1 : 1));
+        }
+    } else if (sortStudentBy === "srtByStudentName") {
+        if (studentAscendDecend === "srtAscending") {
+            studentArray.sort((a, b) => (a.studentName.toUpperCase() < b.studentName.toUpperCase() ? -1 : 1));
+        } else {
+            studentArray.sort((a, b) => (a.studentName.toUpperCase() > b.studentName.toUpperCase() ? -1 : 1));
+        }
+    } else if (sortStudentBy === "srtByHouse") {
+        if (studentAscendDecend === "srtAscending") {
+            studentArray.sort((a, b) => (a.houseName.toUpperCase() < b.houseName.toUpperCase() ? -1 : 1));
+        } else {
+            studentArray.sort((a, b) => (a.houseName.toUpperCase() > b.houseName.toUpperCase() ? -1 : 1));
+        }
+    }
 }
 
 const ButtonEvents = () => {
     document.querySelector('#btnStartSorting').addEventListener('click', PrintStudentForm);
-    document.querySelector('#sortedNames').addEventListener('click', expelStudent);
+    document.querySelector(sortedNamesID).addEventListener('click', expelStudent);
     document.querySelector('form').addEventListener('submit', GetFirstYearsInfo);
+    document.querySelector('#btnSortStudentBy').addEventListener('click', GetFirstYearsInfo);
+    document.querySelector('#btnAscendingDescending').addEventListener('click', GetFirstYearsInfo);
 }
 
 const init = () => {

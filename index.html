@@ -10,10 +10,8 @@
 </head>
 
 <body>
-
     <div class="container mt-3 text-center">
         <div class="sorting-hat-insttructions">
-
             <div class="jumbotron">
                 <h1 class="display-4">Welcome to Hoggy Hoggy Warts!</h1>
                 <p class="lead">Stupefy alohomora totalus orchideous inflamari locomotor momentum serpensortia totalus. Patronum kedavra legilimens petrificus expecto banishing expecto patronum arania mobilicorpus petrificus.</p>
@@ -23,43 +21,44 @@
             </div>
         </div>
         <div class="enter-first-years-name">
-            <form id="studentForm" onsubmit="return CheckForBlankName"></form>
+            <form id="studentForm"></form>
         </div>
     </div>
-
     <div class="row">
         <div class="col">
-
-
             <div class="names-of-first-years container-xl mt-3 text-center ">
-                <legend>First Year's</legend>
+                <legend>First Year's
+                    <p>
+                        <form id="sortingForm">
+                            <select id="studentSortedBy">
+                        <option value="srtByID" selected="selected">ID</option>
+                        <option value="srtByStudentName">Student Name</option>
+                        <option value="srtByHouse">House</option>
+                      </select>
+                            <button href="#" role="button" class="btn btn-primary btn-lg" id="btnSortStudentBy">Sort By</button>
+                        </form>
+                    </p>
+                    <p>
+                        <form id="ascendDescendForm">
+                            <select id="studentAscendDecend">
+                        <option value="srtAscending">Ascending</option>
+                        <option value="srtDescending">Descending</option>
+                      </select>
+                            <button href="#" role="button" class="btn btn-primary btn-lg" id="btnAscendingDescending">Asc/Desc</button>
+                        </form>
+                    </p>
+                </legend>
                 <div id="sortedNames" class="d-flex flex-wrap justify-content-around"></div>
             </div>
-
-
         </div>
         <div class="col">
-
-
             <div class="names-voldemort container-xl mt-3 text-center ">
                 <legend>He Who Must Not Be Named's Army</legend>
-                <p>No Death Eaters...yet!</p>
+                <p id="no-death-eaters">No Death Eaters...yet!</p>
                 <div id="expelledNames" class="d-flex flex-wrap justify-content-around"></div>
             </div>
-
-
-
         </div>
-
-
     </div>
-
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
