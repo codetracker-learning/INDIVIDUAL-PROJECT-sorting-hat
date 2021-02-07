@@ -8,30 +8,35 @@
   <link rel="stylesheet" href="./styles/main.css">
 </head>
   <body>
-    <nav></nav>
 
-    <header>Sorting Hats</header>
+    <header>Sorting Hat</header>
 
 
         <div class="jumbotron">
           <h1 class="display-4">Welcome to Hogwarts</h1>
-          <p class="lead">I am a Thinking Cap!</p>
+          <img src="images/sorting-hat.jpg" alt="Sorting Hat" style="height: 250px; width: 250px; padding: 1em;">
+          <p class="display-4" style="font-size: x-large;">I am a Thinking Hat!</p>
           <hr class="my-4">
-          <p>Click the button below to be sorted into one of our four student houses at Hogwarts!</p>
+          
+          <p style="font-weight: 600;">Click the button below to be sorted into one of our four student houses at Hogwarts!</p>
+          
           <p class="lead">
-            <a id="sort" type="submit" class="btn btn-primary btn-lg" href="#" role="button">Sort Hat!</a>
+            <a id="sort" type="submit" class="btn btn-primary btn-lg" href="#" role="button">Sort Hat</a>
           </p>
         </div>
 
-        <div id="form" class="d-flex justify-content-center"></div>
+      <div id="leftPic">
+        
+
+        <div id="form" class="d-flex justify-content-center" style="padding: 1.5em;"></div>
         
         <div id="students" class="d-flex flex-wrap"></div>
-
+      </div>
 
     <footer></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/main.js" type="module"></script>
   </body>
 </html>

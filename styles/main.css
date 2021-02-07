@@ -3,11 +3,26 @@ body {
 }
 
 header {
-  font-size: 50px;
   text-align: center;
-  font-style: bolder;
+  font-size: 50px;
+  font-weight: 700;
 }
-
 .jumbotron {
   text-align: center;
+}
+
+.display-4 {
+  text-align: center;
+  font-weight: 600;
+}
+
+.inputForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding: 10px;
+}
+
+.card-body {
+  background-color: rgb(128, 125, 125);
 }

@@ -5,7 +5,7 @@ const hat = ["GRYFFINDOR", "HUFFLEPUFF", "RAVENCLAW", "SLYTHERIN"];
 const students = [];
 
 // Expel Array (deleted students)
-const expel = [];
+const voldemortArmy = [];
 
 // Function that prints the student card
 const printToDom = (divId, printText) => {
@@ -41,11 +41,14 @@ const cardForm = (e) => {
   let formId = e.target.id;
   // The student HTML form is rendered when the Sort button is clicked
   if (formId === "sort") {
-    document.querySelector("#form").innerHTML = `<form id="inputForm">
+    document.querySelector("#form").innerHTML = `
+   <div id="inputForm"><img src="./images/Harry.png" alt="harry potter on a broom"></div>
+   <br>
+  <form id="inputForm">
     <div class="card-body">
       <h5 class="card-title">New Student</h5>
       <input type="text" class="form-control" id="studentName">
-      <div class="form-text">Find Your House</div>
+      <div class="text">Find Your House</div>
       <button id="createB" type="button" class="btn btn-primary">Submit</button>
     </div>
   </form>`
@@ -79,16 +82,28 @@ const deleteCard = (e) => {
   if (targetType === "button") {
     const deleteStudent = students.findIndex((student) => student.id === targetId);
     students.splice(deleteStudent, 1);
-
-    // Pushes the deleted student into the expel array
-    expel.push(...students.splice(targetId, 1));
+    let expelledStudent = students.splice(studentIndex, 1);
+    // Pushes the deleted student into the voldemortArmy array
+    voldemortArmy.push(...expelledStudent);
   }
   // Invokes the cardBuilder function with the (students) array as a parameter 
   // expelStudent(expel);
   cardBuilder(students);
 };
 
-
+// expel student array
+// const expelCard = (expelArray) => {
+//   let expelDom = "";
+//   expelArray.forEach((item, i) => {
+//     expelDom +=
+//       `<div class="card m-1" style="width: 18rem;" id=${i}>
+//         <div class="card-body text-center">
+//           <p class="h5 card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
+//         </div>
+//       </div>`
+//   })
+//   printToDom("#expelledStudent", expelDom);
+// };
 
 // Event Listeners when Delete || Sort button is clicked
 const clickEvents = (event) => {
