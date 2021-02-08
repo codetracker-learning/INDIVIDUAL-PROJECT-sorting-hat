@@ -1,3 +1,4 @@
+import { voldemort } from "./voldemort.js";
 // Array of student houses
 const hat = ["GRYFFINDOR", "HUFFLEPUFF", "RAVENCLAW", "SLYTHERIN"];
 
@@ -33,7 +34,7 @@ const cardInfo = (event) => {
   students.push(studentObj);
   // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
-  // document.querySelector("#form").reset();
+  document.querySelector("#form").reset(cardInfo);
 };
 
 // Student information form function and student input name is submitted when the submit button is clicked
@@ -92,18 +93,23 @@ const expelCard = (expelArray) => {
 // Deletes a student when button is clicked
 const deleteCard = (e) => {
   const targetType = (e.target.type);
-  const targetId = (e.target.id);
+  const targetId = Number(e.target.id);
   // if statement if the delete button is clicked it will find the student id
   if (targetType === "button") {
     const deleteStudent = students.findIndex((student) => student.id === targetId);
-    students.splice(deleteStudent, 1);
     let expelStudent = students.splice(deleteStudent, 1);
     // Pushes the deleted student into the voldemortArmy array
     voldemortArmy.push(...expelStudent);
   }
+
+  if (students.length === 0) {
+    const studentArmy = `<div id="student-army">Hogwarts has fallen  to Voldemort and Army of students!</div>`;
+    printToDom("#voldemort-army", studentArmy);
+    voldemort();
+  }
   // Invokes the cardBuilder function with the (students) array as a parameter 
-  expelCard(voldemortArmy);
   cardBuilder(students);
+  expelCard(voldemortArmy);
 };
 
 // Event Listeners when Delete || Sort button is clicked

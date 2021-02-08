@@ -26,3 +26,8 @@ header {
 .card-body {
   background-color: rgb(128, 125, 125);
 }
+
+#voldemort-army {
+  font-weight: 700;
+  font-size: 20px;
+}
