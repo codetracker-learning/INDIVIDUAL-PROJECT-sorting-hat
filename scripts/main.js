@@ -4,7 +4,7 @@ const hat = ["GRYFFINDOR", "HUFFLEPUFF", "RAVENCLAW", "SLYTHERIN"];
 // Students Array
 const students = [];
 
-// Expel Array (deleted students)
+// voldemortArmy Array (expelled students)
 const voldemortArmy = [];
 
 // Function that prints the student card
@@ -14,7 +14,7 @@ const printToDom = (divId, printText) => {
   selectedDiv.innerHTML = printText;
 };
 
-// Gets the information of the student
+// Inputs the information of the student
 const cardInfo = (event) => {
   event.preventDefault();
 
@@ -33,7 +33,7 @@ const cardInfo = (event) => {
   students.push(studentObj);
   // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
-  document.querySelector("form").reset();
+  // document.querySelector("#form").reset();
 };
 
 // Student information form function and student input name is submitted when the submit button is clicked
@@ -74,6 +74,21 @@ const cardBuilder = (studentArray) => {
   printToDom("#students", domString);
 };
 
+// expel student array
+const expelCard = (expelArray) => {
+  let expelDom = "";
+  expelArray.forEach((item, i) => {
+    expelDom +=
+      `<div class="card m-1" style="width: 18rem;" id=${i}>
+        <h5>VoldeMort's Army</h5?
+        <div class="card-body">
+          <div class="h5 card-text text-dark">${item.name} went over to the dark side</div>
+        </div>
+      </div>`
+  })
+  printToDom("#expelledStudent", expelDom);
+};
+
 // Deletes a student when button is clicked
 const deleteCard = (e) => {
   const targetType = (e.target.type);
@@ -82,28 +97,14 @@ const deleteCard = (e) => {
   if (targetType === "button") {
     const deleteStudent = students.findIndex((student) => student.id === targetId);
     students.splice(deleteStudent, 1);
-    let expelledStudent = students.splice(studentIndex, 1);
+    let expelStudent = students.splice(deleteStudent, 1);
     // Pushes the deleted student into the voldemortArmy array
-    voldemortArmy.push(...expelledStudent);
+    voldemortArmy.push(...expelStudent);
   }
   // Invokes the cardBuilder function with the (students) array as a parameter 
-  // expelStudent(expel);
+  expelCard(voldemortArmy);
   cardBuilder(students);
 };
-
-// expel student array
-// const expelCard = (expelArray) => {
-//   let expelDom = "";
-//   expelArray.forEach((item, i) => {
-//     expelDom +=
-//       `<div class="card m-1" style="width: 18rem;" id=${i}>
-//         <div class="card-body text-center">
-//           <p class="h5 card-text text-dark">Unfortunately, <span class="text-danger">${item.name}</span> went over to the dark side</p>
-//         </div>
-//       </div>`
-//   })
-//   printToDom("#expelledStudent", expelDom);
-// };
 
 // Event Listeners when Delete || Sort button is clicked
 const clickEvents = (event) => {
