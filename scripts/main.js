@@ -1,11 +1,12 @@
+import { voldemort } from "./voldemort.js";
 // Array of student houses
 const hat = ["GRYFFINDOR", "HUFFLEPUFF", "RAVENCLAW", "SLYTHERIN"];
 
 // Students Array
 const students = [];
 
-// Expel Array (deleted students)
-const expel = [];
+// voldemortArmy Array (expelled students)
+const voldemortArmy = [];
 
 // Function that prints the student card
 const printToDom = (divId, printText) => {
@@ -14,7 +15,7 @@ const printToDom = (divId, printText) => {
   selectedDiv.innerHTML = printText;
 };
 
-// Gets the information of the student
+// Inputs the information of the student
 const cardInfo = (event) => {
   event.preventDefault();
 
@@ -33,7 +34,7 @@ const cardInfo = (event) => {
   students.push(studentObj);
   // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
-  document.querySelector("form").reset();
+  document.querySelector("#form").reset(cardInfo);
 };
 
 // Student information form function and student input name is submitted when the submit button is clicked
@@ -41,11 +42,14 @@ const cardForm = (e) => {
   let formId = e.target.id;
   // The student HTML form is rendered when the Sort button is clicked
   if (formId === "sort") {
-    document.querySelector("#form").innerHTML = `<form id="inputForm">
+    document.querySelector("#form").innerHTML = `
+   <div id="inputForm"><img src="./images/Harry.png" alt="harry potter on a broom"></div>
+   <br>
+  <form id="inputForm">
     <div class="card-body">
       <h5 class="card-title">New Student</h5>
       <input type="text" class="form-control" id="studentName">
-      <div class="form-text">Find Your House</div>
+      <div class="text">Find Your House</div>
       <button id="createB" type="button" class="btn btn-primary">Submit</button>
     </div>
   </form>`
@@ -71,24 +75,42 @@ const cardBuilder = (studentArray) => {
   printToDom("#students", domString);
 };
 
+// expel student array
+const expelCard = (expelArray) => {
+  let expelDom = "";
+  expelArray.forEach((item, i) => {
+    expelDom +=
+      `<div class="card m-1" style="width: 18rem;" id=${i}>
+        <h5>VoldeMort's Army</h5?
+        <div class="card-body">
+          <div class="h5 card-text text-dark">${item.name} went over to the dark side</div>
+        </div>
+      </div>`
+  })
+  printToDom("#expelledStudent", expelDom);
+};
+
 // Deletes a student when button is clicked
 const deleteCard = (e) => {
   const targetType = (e.target.type);
-  const targetId = (e.target.id);
+  const targetId = Number(e.target.id);
   // if statement if the delete button is clicked it will find the student id
   if (targetType === "button") {
     const deleteStudent = students.findIndex((student) => student.id === targetId);
-    students.splice(deleteStudent, 1);
+    let expelStudent = students.splice(deleteStudent, 1);
+    // Pushes the deleted student into the voldemortArmy array
+    voldemortArmy.push(...expelStudent);
+  }
 
-    // Pushes the deleted student into the expel array
-    expel.push(...students.splice(targetId, 1));
+  if (students.length === 0) {
+    const studentArmy = `<div id="student-army">Hogwarts has fallen  to Voldemort and Army of students!</div>`;
+    printToDom("#voldemort-army", studentArmy);
+    voldemort();
   }
   // Invokes the cardBuilder function with the (students) array as a parameter 
-  // expelStudent(expel);
   cardBuilder(students);
+  expelCard(voldemortArmy);
 };
-
-
 
 // Event Listeners when Delete || Sort button is clicked
 const clickEvents = (event) => {
