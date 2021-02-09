@@ -1,5 +1,6 @@
 body {
   background-color: rgb(179, 179, 135);
+  margin: 16px;
 }
 
 header {
@@ -16,42 +17,39 @@ header {
   font-weight: 600;
 }
 
-#student-card {
+.card-body {
+  background-color: rgb(128, 125, 125);
+  text-align: center;
+  font-weight: 600;
+  padding: 5px;
+}
+
+#students {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
 }
 
 #student-title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 30px;
-  padding: 10px;
-}
-
-.card-body {
-  background-color: rgb(128, 125, 125);
-  padding: 8px;
 }
 
 #v-army {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 30px;
   padding: 10px;
 }
-#voldemort {
-  text-align: center;
-}
 
-#expel-card {
-  background-color: rgb(128, 125, 125);
+#expelledStudent {
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 #voldemort-army {
+  text-align: center;
   font-weight: 700;
   font-size: 30px;
   padding: 10px;

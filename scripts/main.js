@@ -15,26 +15,22 @@ const printToDom = (divId, printText) => {
   selectedDiv.innerHTML = printText;
 };
 
-// Inputs the information of the student
-const cardInfo = (event) => {
-  event.preventDefault();
-
-  const name = document.querySelector("#studentName").value;
-  const house = hat[Math.floor(Math.random() * hat.length)];
-  // Sorts students by Ids using the .map method
-  const studentIds = students.map(student => student.id).sort((a, b) => a - b);
-  const id = studentIds.length ? studentIds[(studentIds.length - 1)] + 1 : 1;
-  // The student object key.value form
-  const studentObj = {
-    name,
-    house,
-    id,
-  };
-  // Pushes the student object into the students array
-  students.push(studentObj);
-  // Invokes the cardBuilder function with the (students) array as a parameter 
-  cardBuilder(students);
-  // document.querySelector("#studentName").reset();
+// Prints the array of students to the DOM
+const cardBuilder = (studentArray) => {
+  let domString = "";
+  // .forEach array method that reiterates through the students array 
+  studentArray.forEach((item, i) => {
+    domString += `
+    <div class="card mb-3" style="width: 18rem;" id=${i}>      
+        <div id="student-card" class="card-body">
+          <h4 ${item.name} >Name: ${item.name}</h4>
+          <p class="card-text">House: ${item.house}</p>
+          <button type="button" class="btn btn-danger" id="${i}">Expel!</button> 
+        </div>
+      </div>`;
+  })
+  // Invokes the printToDom function and renders the student to the Dom
+  printToDom("#students", domString);
 };
 
 // Student information form function and student input name is submitted when the submit button is clicked
@@ -59,22 +55,26 @@ const cardForm = (e) => {
   document.querySelector("#createB").addEventListener('click', cardInfo);
 };
 
-// Prints the array of students to the DOM
-const cardBuilder = (studentArray) => {
-  let domString = "";
-  // .forEach array method that reiterates through the students array 
-  studentArray.forEach((item, i) => {
-    domString += `
-    <div class="card mb-3" style="width: 18rem;" id=${i}>      
-        <div id="student-card" class="card-body">
-          <h4 ${item.name} >Name: ${item.name}</h4>
-          <p class="card-text">House: ${item.house}</p>
-          <button type="button" class="btn btn-danger" id="${i}">Expel!</button> 
-        </div>
-      </div>`;
-  })
-  // Invokes the printToDom function and renders the student to the Dom
-  printToDom("#students", domString);
+// Card information form of the student
+const cardInfo = (event) => {
+  event.preventDefault();
+
+  const name = document.querySelector("#studentName").value;
+  const house = hat[Math.floor(Math.random() * hat.length)];
+  // Sorts students by Ids using the .map method
+  const studentIds = students.map(student => student.id).sort((a, b) => a - b);
+  const id = studentIds.length ? studentIds[(studentIds.length - 1)] + 1 : 1;
+  // The student object key.value form
+  const studentObj = {
+    name,
+    house,
+    id,
+  };
+  // Pushes the student object into the students array
+  students.push(studentObj);
+  // Invokes the cardBuilder function with the (students) array as a parameter 
+  cardBuilder(students);
+  // document.querySelector("#studentName").reset();
 };
 
 // expel student array
@@ -83,11 +83,12 @@ const expelCard = (expelArray) => {
   expelArray.forEach((item, i) => {
     expelDom +=
       `<div id="expel-card" class="card mb-3" style="width: 18rem;" id=${i}>
-        <h5>EXPELLED!!!</h5?
         <div class="card-body">
-        <h5 class="card-text">Name: ${item.name}</h5>
+        <h5>EXPELLED!!!</h5>
+        <h5 class="card-text">${item.name}</h5>
           <div class="h5 card-text text-dark">Went over to the dark side to join VoldeMort's Army</div>
         </div>
+        <img src="./images/v-army.jpeg" alt="Voldemort Army">
       </div>`;
   })
   printToDom("#expelledStudent", expelDom);
@@ -107,9 +108,11 @@ const deleteCard = (e) => {
 
   if (students.length === 0) {
     const studentArmy = `
-    <div id="voldemort"><img src="./images/Voldemort.jpeg" alt="Voldemort"></div>
-    <br>
-    <div id="voldemort-army">Hogwarts has fallen  to Voldemort's Army!</div>`;
+    <div class="card-body">
+      <div id="voldemort"><img src="./images/Voldemort.jpeg" alt="Voldemort"></div>
+      <br>
+      <div id="voldemort-army">Hogwarts has fallen  to Voldemort's Army!</div>
+    </div>`;
     printToDom("#voldemort-army", studentArmy);
     voldemort();
   }
@@ -129,6 +132,7 @@ const clickEvents = (event) => {
 const initialize = () => {
   // Invokes the clickEvents function
   clickEvents();
+  // cardBuilder(students);
 };
 // Invokes the initialize function
 initialize();
