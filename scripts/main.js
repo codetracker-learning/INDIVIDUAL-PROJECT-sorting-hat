@@ -64,9 +64,10 @@ const cardBuilder = (studentArray) => {
   let domString = "";
   // .forEach array method that reiterates through the students array 
   studentArray.forEach((item, i) => {
-    domString += `<div class="card mb-3" style="width: 18rem;" id=${i}>      
-        <div class="card-body">
-          <h4 class="card-text">Name: ${item.name}</h4>
+    domString += `
+    <div class="card mb-3" style="width: 18rem;" id=${i}>      
+        <div id="student-card" class="card-body">
+          <h4 ${item.name} >Name: ${item.name}</h4>
           <p class="card-text">House: ${item.house}</p>
           <button type="button" class="btn btn-danger" id="${i}">Expel!</button> 
         </div>
@@ -81,12 +82,13 @@ const expelCard = (expelArray) => {
   let expelDom = "";
   expelArray.forEach((item, i) => {
     expelDom +=
-      `<div class="card m-1" style="width: 18rem;" id=${i}>
-        <h5>VoldeMort's Army</h5?
+      `<div id="expel-card" class="card mb-3" style="width: 18rem;" id=${i}>
+        <h5>EXPELLED!!!</h5?
         <div class="card-body">
-          <div class="h5 card-text text-dark">${item.name} went over to the dark side</div>
+        <h5 class="card-text">Name: ${item.name}</h5>
+          <div class="h5 card-text text-dark">Went over to the dark side to join VoldeMort's Army</div>
         </div>
-      </div>`
+      </div>`;
   })
   printToDom("#expelledStudent", expelDom);
 };
@@ -104,7 +106,10 @@ const deleteCard = (e) => {
   }
 
   if (students.length === 0) {
-    const studentArmy = `<div id="student-army">Hogwarts has fallen  to Voldemort and Army of students!</div>`;
+    const studentArmy = `
+    <div id="voldemort"><img src="./images/Voldemort.jpeg" alt="Voldemort"></div>
+    <br>
+    <div id="voldemort-army">Hogwarts has fallen  to Voldemort's Army!</div>`;
     printToDom("#voldemort-army", studentArmy);
     voldemort();
   }

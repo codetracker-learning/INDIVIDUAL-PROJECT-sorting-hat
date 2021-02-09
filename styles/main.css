@@ -16,18 +16,43 @@ header {
   font-weight: 600;
 }
 
-.inputForm {
+#student-card {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#student-title {
+  font-weight: 700;
+  font-size: 30px;
   padding: 10px;
 }
 
 .card-body {
   background-color: rgb(128, 125, 125);
+  padding: 8px;
+}
+
+#v-army {
+  font-weight: 700;
+  font-size: 30px;
+  padding: 10px;
+}
+#voldemort {
+  text-align: center;
+}
+
+#expel-card {
+  background-color: rgb(128, 125, 125);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 15px;
 }
 
 #voldemort-army {
   font-weight: 700;
   font-size: 30px;
+  padding: 10px;
 }

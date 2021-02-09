@@ -5,15 +5,13 @@
 
 ## FEATURES:
 
-## VIDEO DEMO
-####
+## VIDEO DEMO:
 
 ## LINKS:
-
 #### Repo: https://github.com/fimoefive/sorting-hat
 #### Netlify link:
 
-## CONTRIBUTOR: #### https://github.com/fimoefive
+## CONTRIBUTOR: https://github.com/fimoefive
 
 ## SCREENSHOTS:
 
