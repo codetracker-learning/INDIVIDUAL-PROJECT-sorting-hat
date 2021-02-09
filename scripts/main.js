@@ -34,7 +34,7 @@ const cardInfo = (event) => {
   students.push(studentObj);
   // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
-  document.querySelector("#form").reset(cardInfo);
+  // document.querySelector("#studentName").reset();
 };
 
 // Student information form function and student input name is submitted when the submit button is clicked
@@ -43,13 +43,14 @@ const cardForm = (e) => {
   // The student HTML form is rendered when the Sort button is clicked
   if (formId === "sort") {
     document.querySelector("#form").innerHTML = `
-   <div id="inputForm"><img src="./images/Harry.png" alt="harry potter on a broom"></div>
-   <br>
+
   <form id="inputForm">
+    <div id="harry"><img src="./images/Harry.png" alt="harry potter on a broom"></div>
+   <br>
     <div class="card-body">
       <h5 class="card-title">New Student</h5>
-      <input type="text" class="form-control" id="studentName">
-      <div class="text">Find Your House</div>
+      <input type="text" class="form-control" id="studentName">Student Name</input>
+      <div class="text">Find House</div>
       <button id="createB" type="button" class="btn btn-primary">Submit</button>
     </div>
   </form>`
