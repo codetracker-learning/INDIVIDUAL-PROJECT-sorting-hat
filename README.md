@@ -1,4 +1,22 @@
 # Sorting Hat
+## OVERVIEW:
+
+## DESCRIPTION:
+
+## FEATURES:
+
+## VIDEO DEMO
+####
+
+## LINKS:
+
+#### Repo: https://github.com/fimoefive/sorting-hat
+#### Netlify link:
+
+## CONTRIBUTOR: #### https://github.com/fimoefive
+
+## SCREENSHOTS:
+
 
 ## Goals
 The goal of this project is to test your knowledge and to have a FUN time stretching yourself on your FIRST independent application that will become a part of your portfolio.
