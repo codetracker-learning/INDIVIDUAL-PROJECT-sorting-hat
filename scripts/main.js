@@ -23,7 +23,7 @@ const cardBuilder = (studentArray) => {
     domString += `
     <div class="card mb-3" style="width: 18rem;" id=${i}>      
         <div id="student-card" class="card-body">
-          <h4 ${item.name} >Name: ${item.name}</h4>
+          <h4 ${item.name}>Name: ${item.name}</h4>
           <p class="card-text">House: ${item.house}</p>
           <button type="button" class="btn btn-danger" id="${i}">Expel!</button> 
         </div>
