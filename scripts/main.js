@@ -49,7 +49,7 @@ const cardForm = (e) => {
       <div class="text">Find House</div>
       <button id="createB" type="button" class="btn btn-primary">Submit</button>
     </div>
-  </form>`
+  </form>`;
   }
   // Listens for the submit button when clicked and triggers the cardInfo function
   document.querySelector("#createB").addEventListener('click', cardInfo);
@@ -74,7 +74,7 @@ const cardInfo = (event) => {
   students.push(studentObj);
   // Invokes the cardBuilder function with the (students) array as a parameter 
   cardBuilder(students);
-  // document.querySelector("#studentName").reset();
+  document.querySelector("#inputForm").reset();
 };
 
 // expel student array
