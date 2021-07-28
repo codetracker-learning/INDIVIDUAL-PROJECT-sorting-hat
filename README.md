@@ -21,7 +21,7 @@ This is what the finished app should have:
 
 - On sorting a student, the form should clear and a [bootstrap card](https://getbootstrap.com/docs/5.0/components/card/) with the student's name and a random house assignment should print below the form. 
 
-- You should also be able to expel a student after they have been sorted, which should remove their card from the student record.
+- You should also be able to expel a student after they have been sorted, which should remove their card from the student array and move them to Moldy Voldy's Army.
 
 In the end, your app will look something like: 
 ![Sorting Hat Mockup](https://github.com/nss-nightclass-projects/exercise-vault/raw/master/images/sorting-hat-mockup.png)
@@ -30,7 +30,7 @@ In the end, your app will look something like:
 
 ## Technical Requirements
 - You MUST plan your project and create issue tickets and a project board fro your project
-- You MAY use the `printToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
+- You MAY use the `renderToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
 - You have to create a data structure for your project. Review all the elements that need to be on the DOM and create the structure accordingly
 - You must use [Boostrap](https://getbootstrap.com/) to style your page components
 - You must use a loop other than a `for loop`
@@ -39,14 +39,13 @@ In the end, your app will look something like:
 - Your HTML and JS should all have proper indentation
 - Helpful Form: An error message shows if a user tries to sort a student without filling out the form
 - You should apply responsive design to your page (aka your app should be designed to work on small screens)
-
-## Add Button Hints
-When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
+- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
+- Add filter buttons to filter the non-expelled students by house
 
 ## Expel Button Hints
-Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your print to dom function.  Double hint - put a unique id in the student object when you create them.
+Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your `renderToDom()` function.  Double hint - put a unique id in the student object when you create them.
 
 ## Optional Bonus
 - House Colors: The color of the student's card changes depending on which house they were sorted. 
 - Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
+
