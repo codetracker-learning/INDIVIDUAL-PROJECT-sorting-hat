@@ -24,7 +24,8 @@ This is what the finished app should have:
 - You should also be able to expel a student after they have been sorted, which should remove their card from the student array and move them to Moldy Voldy's Army.
 
 In the end, your app will look something like: 
-![Sorting Hat Mockup](https://github.com/nss-nightclass-projects/exercise-vault/raw/master/images/sorting-hat-mockup.png)
+
+![Sorting Hat Wireframe](https://user-images.githubusercontent.com/29741570/127729524-c6a96f34-0ee7-442e-99c0-016ab48f31db.png)
 
 [See Demo](https://drt-sortinghat.netlify.app/)
 
