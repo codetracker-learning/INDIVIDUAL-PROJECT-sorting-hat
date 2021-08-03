@@ -1,10 +1,12 @@
 // Student Arrays
 
 
-const newStudents = [{
+const newStudents = [
+    {
     name: "Harry Potter",
     house: "Griffyndor",
-},];
+},
+];
 
 const deathEaters = [{},];
 
@@ -29,32 +31,37 @@ const sortingHat = () => {
   </div>`
 
   renderToDom("#sortingHat", domString);
-}
+};
+
+
 
 // Button Controls
 
 const button = () => {
     document.querySelector(`body`).addEventListener ("click", buttonControl);
-}
+};
+
 const buttonControl = (event) => {
     console.log("The button works?")
- if (event.target.id === "startButton") {
-     console.log("Sorted!")
-     let domString = `
+    if (event.target.id === "startButton") {
+    console.log("Sorted!")
+    let domString = `
      <form>
      <div class="mb-3">
        <label for="studentName" class="form-label">Student Name</label>
        <input type="text" class="form-control" id="studentName">
      </div>
      <button type="submit" class="btn btn-primary">Submit</button>
-   </form>
+     </form>
      `
 
-     renderToDom("#studentForm", domString);
+    renderToDom("#studentForm", domString);
  };
 
- if (event.target.type === "submit"){
-     sortStudents();
+    if (event.target.type === "submit"){
+    event.preventDefault();
+    console.log(newStudents);
+    sortStudents();
  };
 };
 
@@ -84,47 +91,49 @@ const placeStudents = (array) => {
 
 // Sorts students into houses and adds to the array.
 
-
 const sortStudents = () => {    
 
     const randomNumber = () => {
-        return Math.floor(Math.random() * 4) + 1}; 
+        return Math.floor(Math.random() * 4) + 1
+    }; 
 
         if (randomNumber === 1) {      
             const student = {
-            name = document.querySelector("#studentName").value,
-            house = "Griffyndor",
+            name: document.querySelector("#studentName").value,
+            house: "Griffyndor",
         };
         console.log(student);
-        }
+        newStudents.push(student);
+        };
         if (randomNumber === 2) {      
             const student = {
-            name = document.querySelector("#studentName").value,
-            house = "Hufflepuff",
+            name: document.querySelector("#studentName").value,
+            house: "Hufflepuff",
         };
         console.log(student);
         newStudents.push(student);
-        }
+        };
         if (randomNumber === 3) {      
             const student = {
-            name = document.querySelector("#studentName").value,
-            house = "Ravenclaw",
+            name: document.querySelector("#studentName").value,
+            house: "Ravenclaw",
         };
         console.log(student);
         newStudents.push(student);
-        }
+        };
         if (randomNumber === 4) {      
-    const student = {
-    name = document.querySelector("#studentName").value,
-    house = "Slythryn",
+            const student = {
+            name: document.querySelector("#studentName").value,
+            house :"Slythryn",
   };
-console.log(student);
-newStudents.push(student);
-}
-
-
-placeStudents(newStudents);
+    console.log(student);
+    newStudents.push(student);
 };
+
+
+ placeStudents(newStudents);
+};
+
 
 
 // Initializes App
@@ -136,8 +145,6 @@ const init = () => {
     placeStudents(newStudents);
     buttonControl();
     sortStudents();
-
-
 }
 
 init();
