@@ -87,35 +87,33 @@ const placeStudents = (array) => {
 
 const sortStudents = () => {    
 
-const randomNumber = () => {
-    return Math.floor(Math.random() * 4) + 1}; 
+    const randomNumber = () => {
+        return Math.floor(Math.random() * 4) + 1}; 
 
-const studentHouse = randomNumber();
-
-if (studentHouse === 1) {      
-    const student = {
-    name = document.querySelector("#studentName").value,
-    house = "Griffyndor",
-  };
-console.log(student);
-}
-if (studentHouse === 2) {      
-    const student = {
-    name = document.querySelector("#studentName").value,
-    house = "Hufflepuff",
-  };
-console.log(student);
-newStudents.push(student);
-}
-if (studentHouse === 3) {      
-    const student = {
-    name = document.querySelector("#studentName").value,
-    house = "Ravenclaw",
-  };
-console.log(student);
-newStudents.push(student);
-}
-if (studentHouse === 4) {      
+        if (randomNumber === 1) {      
+            const student = {
+            name = document.querySelector("#studentName").value,
+            house = "Griffyndor",
+        };
+        console.log(student);
+        }
+        if (randomNumber === 2) {      
+            const student = {
+            name = document.querySelector("#studentName").value,
+            house = "Hufflepuff",
+        };
+        console.log(student);
+        newStudents.push(student);
+        }
+        if (randomNumber === 3) {      
+            const student = {
+            name = document.querySelector("#studentName").value,
+            house = "Ravenclaw",
+        };
+        console.log(student);
+        newStudents.push(student);
+        }
+        if (randomNumber === 4) {      
     const student = {
     name = document.querySelector("#studentName").value,
     house = "Slythryn",
