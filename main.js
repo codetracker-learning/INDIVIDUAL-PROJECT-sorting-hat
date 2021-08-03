@@ -1,10 +1,9 @@
 // Student Arrays
 
-
 const newStudents = [
     {
     name: "Harry Potter",
-    house: "Griffyndor",
+    house: "Gryffindor",
 },
 ];
 
@@ -95,17 +94,21 @@ const sortStudents = () => {
 
     const randomNumber = () => {
         return Math.floor(Math.random() * 4) + 1
-    }; 
+    };
+    
+    console.log(randomNumber());
 
-        if (randomNumber === 1) {      
+    const studentHouse = randomNumber();
+
+        if (studentHouse === 1) {      
             const student = {
             name: document.querySelector("#studentName").value,
-            house: "Griffyndor",
+            house: "Gryffindor",
         };
         console.log(student);
         newStudents.push(student);
         };
-        if (randomNumber === 2) {      
+        if (studentHouse === 2) {      
             const student = {
             name: document.querySelector("#studentName").value,
             house: "Hufflepuff",
@@ -113,7 +116,7 @@ const sortStudents = () => {
         console.log(student);
         newStudents.push(student);
         };
-        if (randomNumber === 3) {      
+        if (studentHouse === 3) {      
             const student = {
             name: document.querySelector("#studentName").value,
             house: "Ravenclaw",
@@ -121,10 +124,10 @@ const sortStudents = () => {
         console.log(student);
         newStudents.push(student);
         };
-        if (randomNumber === 4) {      
+        if (studentHouse === 4) {      
             const student = {
             name: document.querySelector("#studentName").value,
-            house :"Slythryn",
+            house :"Slytherin",
   };
     console.log(student);
     newStudents.push(student);
