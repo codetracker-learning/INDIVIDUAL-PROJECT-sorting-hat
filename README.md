@@ -30,7 +30,7 @@ In the end, your app will look something like:
 [See Demo](https://drt-sortinghat.netlify.app/)
 
 ## Technical Requirements
-- You MUST plan your project and create issue tickets and a project board fro your project
+- You MUST plan your project and create issue tickets and a project board for your project
 - You MAY use the `renderToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
 - You have to create a data structure for your project. Review all the elements that need to be on the DOM and create the structure accordingly
 - You must use [Boostrap](https://getbootstrap.com/) to style your page components
