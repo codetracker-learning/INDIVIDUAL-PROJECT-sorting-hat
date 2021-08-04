@@ -77,8 +77,8 @@ const placeStudents = (array) => {
 
   array.forEach((student, i) => {
     domString += `
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card ${student.style}" style="width: 18rem;">
+            <img src="${student.crest}" class="card-img-top" alt="${student.house}">
             <div class="card-body">
                 <h5 class="card-title">${student.name}</h5>
                 <p class="card-text">${student.house}</p>
@@ -124,8 +124,8 @@ const sortDeathEaters = (array) => {
 
   array.forEach((student) => {
     domString += `
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card evil" style="width: 18rem;">
+            <img src="https://static.wikia.nocookie.net/pottermore/images/7/71/Screenshot_-_10_5_2013_%2C_3_57_20_PM.png" class="card-img-top" alt="The Dark Mark!">
             <div class="card-body">
                 <h5 class="card-title">${student.name}</h5>
                 <p class="card-text">This student is now a Death Eater!</p>
@@ -152,6 +152,8 @@ const sortStudents = () => {
     const student = {
       name: document.querySelector("#studentName").value,
       house: "Gryffindor",
+      crest: `https://static.wikia.nocookie.net/pottermore/images/1/16/Gryffindor_crest.png`,
+      style: "grif-style",
     };
     console.log(student);
     newStudents.push(student);
@@ -160,6 +162,8 @@ const sortStudents = () => {
     const student = {
       name: document.querySelector("#studentName").value,
       house: "Hufflepuff",
+      crest: `https://static.wikia.nocookie.net/pottermore/images/5/5e/Hufflepuff_crest.png`,
+      style: "huff-style",
     };
     console.log(student);
     newStudents.push(student);
@@ -168,6 +172,8 @@ const sortStudents = () => {
     const student = {
       name: document.querySelector("#studentName").value,
       house: "Ravenclaw",
+      crest: `https://static.wikia.nocookie.net/pottermore/images/4/4f/Ravenclaw_crest.png`,
+      style: "rave-style",
     };
     console.log(student);
     newStudents.push(student);
@@ -176,6 +182,8 @@ const sortStudents = () => {
     const student = {
       name: document.querySelector("#studentName").value,
       house: "Slytherin",
+      crest: `https://static.wikia.nocookie.net/pottermore/images/4/45/Slytherin_Crest.png`,
+      style: "sly-style",
     };
     console.log(student);
     newStudents.push(student);

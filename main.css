@@ -1,5 +1,12 @@
+body {
+    background-image: url("https://static1.srcdn.com/wordpress/wp-content/uploads/2019/12/great-hall-feature.jpeg");
+}
+
+
 #sortingHat {
     display: flex;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
 }
 
 #hogwartsStudents {
@@ -8,4 +15,54 @@
 
 #expelledStudents {
     display: flex;
+}
+
+.card {
+    margin: 5px; 
+}
+
+.grif-style {
+    background: #990000;
+    border: 4px solid gold;
+}
+
+.grif-style img {
+    border-bottom: 4px solid gold;
+}
+
+.huff-style {
+    background: #ffcc66;
+    border: 4px solid black;
+}
+
+.huff-style img {
+    border-bottom: 4px solid black;
+}
+
+.rave-style {
+    background: #0066ff;
+    border: 4px solid whitesmoke;
+}
+
+.rave-style img {
+    border-bottom: 4px solid whitesmoke;
+}
+
+.sly-style {
+    background: #009933;
+    border: 4px solid silver;
+}
+
+.sly-style img {
+    border-bottom: 4px solid silver;
+}
+
+.evil {
+    background: black;
+    color: chartreuse;
+    border: 4px solid silver;
+}
+
+.evil img {
+    border-bottom: 4px solid silver;
 }
