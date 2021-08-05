@@ -8,7 +8,7 @@ const renderToDom = (divId, textToRender) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = textToRender;
 };
-
+//Header of the application 
 const introCard = () => {
     const domString = `
     <div class="card" style="width: 18rem;">
@@ -22,19 +22,20 @@ const introCard = () => {
     renderToDom("#card", domString)
 };
 
-
+//student form 
 const studentForm = () => {
     const allForm = document.querySelector('#form');
     allForm.innerHTML = `
       <form>
   <label for="name" class="form-label">Student Name</label>
-  <input type="name" class="form-control" id="name" placeholder="Enter here the student name">
+  <input type="name" class="form-control" required id="name" placeholder="Enter here the student name">
     </div>
        <button id="sortbutton" type="submit">Sumbit</button>
     </form>`;
     document.querySelector("form").addEventListener("submit", sortButton);
 };
 
+// function that prevents student form from displaying on the DOM before the button gets clicked
 const enterStudent = (event) => {
     event.preventDefault();
     const targetType = event.target.type;
@@ -43,16 +44,16 @@ const enterStudent = (event) => {
         studentForm();
     };
 };
+//create the student card and render it to the DOM
 const studentHouseBuilder = (studentArray) => {
     let domString = ""
     studentArray.forEach((student) => {
         domString += `
             <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${student.name}</h5>
                 <p class="card-text">${student.house}</p>
-                <button id = "Submit" type="submit">Expel</button>
+                <button id = "Submit" type="button">Expel</button>
             </div>
             </div>
             `;
@@ -60,32 +61,71 @@ const studentHouseBuilder = (studentArray) => {
     renderToDom("#studentHouse", domString)
 };
 
-
+const errorMessage = (student) => {
+    if(student.name ===  " ") {
+        let domString = `<h5> Please enter the student's name </h5>`;
+        renderToDom("#name-error", domString);
+    } else {
+        studentInTheHouse.push(student);
+        domString = `<h4></h4>`;
+        renderToDom("#name-error", domString);
+    }
+};
+//create a random number, assign it to a house, take input from the form and push it to the array
 const sortButton = (event) => {
 
     const randomHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
-    const availabeHouse = randomHouses[Math.floor(Math.random() * randomHouses.length)]
+    const availableHouse = randomHouses[Math.floor(Math.random() * randomHouses.length)]
     const object = {
         name: document.querySelector('#name').value,
-        house: availabeHouse
-    }
+        house: availableHouse
+    };
     studentInTheHouse.push(object);
     studentHouseBuilder(studentInTheHouse);
+    document.querySelector("form").reset();
 };
 
 
+// Expel students to Voldy Army
+const evictStudents = (event) => {
+    const targetType = event.target.type;
+    const targetId = event.target.Id;
+    if(targetType === "button") {
+    const movedCard = studentInTheHouse.splice(targetId, 1);
+    expelledArmy.push(movedCard[0]);
+    voldyArmyStudent(expelledArmy);
+    studentHouseBuilder(studentInTheHouse);
+    }
+};
+//Render cards for student's in Voldy Army
+const voldyArmyStudent = (armyArray) => {
+    let domString= ""
+    armyArray.forEach((student) => {
+        domString+= `
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${student.name}</h5>
+            <p class="card-text">Joined the Army</p>   
+        </div>
+        </div>
+        `
+    });
+    renderToDom("#filterCards", domString);
+};
 
+//listen to the button click on the intro card and display the student form
 const buttonEvent = () => {
     document.querySelector("#card").addEventListener("click", enterStudent);
-    
+    document.querySelector("#studentHouse").addEventListener("click",evictStudents);
 };
 
-
+// starts the application 
 const init = () => {
-    introCard();
     //studentForm();
+    introCard();
+    studentHouseBuilder(studentInTheHouse);
+    voldyArmyStudent(expelledArmy);
     buttonEvent();
-
 };
 
 init();
