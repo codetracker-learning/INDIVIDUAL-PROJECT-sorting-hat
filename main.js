@@ -10,7 +10,7 @@ const renderToDom = (divId, textToRender) => {
 //Header of the application 
 const introCard = () => {
     const domString = `
-    <div class="card" style="width: 18rem;">
+    <div class="card" >
     <div class="card-body">
       <h2 class="card-title">Welcome to Hoggy Warts</h2>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -101,7 +101,7 @@ const voldyArmyStudent = (armyArray) => {
 };
 
 //Add buttons to filter the non-expelled students by house
-const houseButton = () => {
+/*const houseButton = () => {
     const domString = `
         <button type="button" class="btn btn-outline-success" id = "All" >All</button>
         <button type="button" class="btn btn-outline-primary" id="Gryffindor">Gryffindor</button>
@@ -131,7 +131,7 @@ const handleHouseFilter = (event) => {
     } else if (event.target.id === "button") {
         studentHouseBuilder(houseFilter(studentInTheHouse.event.target.id));  
         }
-    };
+    }; */
 //listen to the button click on the intro card and display the student form
 const buttonEvent = () => {
     document.querySelector("#card").addEventListener("click", enterStudent);
@@ -142,10 +142,10 @@ const buttonEvent = () => {
 const init = () => {
     //studentForm();
     introCard();
-    voldyArmyStudent(expelledArmy);
     studentHouseBuilder(studentInTheHouse); 
-   // houseButton();
+    voldyArmyStudent(expelledArmy);
     buttonEvent();
+    //houseButton();  
 };
 
 init();
