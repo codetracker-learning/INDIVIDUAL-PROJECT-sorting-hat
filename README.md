@@ -27,8 +27,8 @@ In the end, your app will look something like:
 
 ![Sorting Hat Wireframe](https://user-images.githubusercontent.com/29741570/127729524-c6a96f34-0ee7-442e-99c0-016ab48f31db.png)
 
-[See Demo](https://drt-sortinghat.netlify.app/)
-
+<!-- [See Demo](https://drt-sortinghat.netlify.app/)
+ -->
 ## Technical Requirements
 - You MUST plan your project and create issue tickets and a project board for your project
 - You MAY use the `renderToDom()` function that we worked on in class, but you also need to be able to explain it if you use it
