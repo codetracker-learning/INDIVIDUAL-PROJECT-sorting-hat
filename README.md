@@ -25,7 +25,8 @@ This is what the finished app should have:
 
 In the end, your app will look something like: 
 
-![Sorting Hat Wireframe](https://user-images.githubusercontent.com/29741570/127729524-c6a96f34-0ee7-442e-99c0-016ab48f31db.png)
+![screencapture-drt-sorting-netlify-app-2022-04-23-14_28_47](https://user-images.githubusercontent.com/29741570/164943525-d20275be-c312-42d1-9730-0c1fd3fd9834.png)
+
 
 <!-- [See Demo](https://drt-sortinghat.netlify.app/)
  -->
