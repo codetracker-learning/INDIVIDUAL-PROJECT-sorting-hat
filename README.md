@@ -39,7 +39,6 @@ In the end, your app will look something like:
 - Your code MUST be YOUR code. Do not copy and paste code into your project. Type every bit of it out
 - Your HTML and JS should all have proper indentation
 - Helpful Form: An error message shows if a user tries to sort a student without filling out the form
-- You should apply responsive design to your page (aka your app should be designed to work on small screens)
 - Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
 - Add filter buttons to filter the non-expelled students by house
 
