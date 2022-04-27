@@ -36,7 +36,7 @@ In the end, your app will look something like:
 - You have to create a data structure for your project. Review all the elements that need to be on the DOM and create the structure accordingly
 - You must use [Boostrap](https://getbootstrap.com/) to style your page components
 - You must use a loop other than a `for loop`
-- Your JS file should be comprised of functions, no actions should happen in your code outside of a function except for your initial `init()` function
+- Your JS file should be comprised of functions, no actions should happen in your code outside of a function except for your initial `startApp()` function
 - Your code MUST be YOUR code. Do not copy and paste code into your project. Type every bit of it out
 - Your HTML and JS should all have proper indentation
 - Helpful Form: An error message shows if a user tries to sort a student without filling out the form
@@ -47,6 +47,6 @@ In the end, your app will look something like:
 Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your `renderToDom()` function.  Double hint - put a unique id in the student object when you create them.
 
 ## Optional Bonus
-- House Colors: The color of the student's card changes depending on which house they were sorted. 
-- Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
+- House Colors: The color of the student's card changes depending on which house they were sorted.
+- Card Sorting/Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
 
