@@ -43,6 +43,11 @@ In the end, your app will look something like:
 - Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
 - Add filter buttons to filter the non-expelled students by house
 
+## DEFINITION OF DONE
+Once you have completed all the technical requirments, you should complete the following:
+- [README Requirements](https://github.com/orgs/nss-evening-web-development/discussions/13)
+- **RECOMMENDED** Loom Video: [Sign up for Loom](https://www.loom.com/signup) and record a video of you walking through your app 
+
 ## Expel Button Hints
 Think of a way you can expel students without just hiding those divs on the page. This would mean when the button is clicked you modify the array of students and pass the new array into your `renderToDom()` function.  Double hint - put a unique id in the student object when you create them.
 
