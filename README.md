@@ -8,7 +8,7 @@ Focus on MVP. Do not spend a ton of time styling initially. Hit functionality fi
 - READ THROUGH ALL OF THE INFORMATION BELOW before planning how you will tackle the project.
 - Check the Issue Tickets to organize your process. You will have all week in class to work on this in class. 
 - PLEASE submit questions in help tickets if you need help. We will guide you to the resources that are available to you.
-- When done, tell an instructor. Everyone will present how far they got AND their favorite piece of code that they wrote.
+- When done, tell an instructor. Everyone will present how far they got AND their favorite piece of code that they wrote to an instructor.
 - MOST OF ALL HAVE FUN!!!!!
 
 ## Instructions
